@@ -1,14 +1,16 @@
 <section class="why-section bg-dark-section section-padding" id="why-choose">
   <div class="why-container">
-    <app-section-title 
-      align="center"
-    >
-      Why Choose <span class="highlight">QEP?</span>
-    </app-section-title>
+    <div class="reveal reveal-up">
+      <app-section-title 
+        align="center"
+      >
+        Why Choose <span class="highlight">QEP?</span>
+      </app-section-title>
+    </div>
 
     <div class="features-grid">
       @for (feat of features; track feat.title) {
-        <div class="feature-col">
+        <div class="feature-col reveal reveal-up">
           <div class="feature-icon-wrapper">
             <img [src]="feat.image" [alt]="feat.title" class="feature-img" />
           </div>

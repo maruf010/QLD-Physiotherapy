@@ -39,3 +39,8 @@ body {
     padding-bottom: 30px;
   }
 }
+
+// Snappy hover transition override for reveal elements
+.reveal.visible:hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}

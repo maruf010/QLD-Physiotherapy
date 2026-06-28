@@ -1,16 +1,18 @@
 <section class="services-section section-padding" id="services">
   <div class="services-container">
-    <app-section-title 
-      tagline="OUR CLINICAL PROGRAMS" 
-      align="center"
-      description="Specialized, evidence-based exercise interventions designed to target specific clinical needs and improve long-term physical capacity."
-    >
-      How We Can <span class="highlight">Help</span>
-    </app-section-title>
+    <div class="reveal reveal-up">
+      <app-section-title 
+        tagline="OUR CLINICAL PROGRAMS" 
+        align="center"
+        description="Specialized, evidence-based exercise interventions designed to target specific clinical needs and improve long-term physical capacity."
+      >
+        How We Can <span class="highlight">Help</span>
+      </app-section-title>
+    </div>
 
     <div class="services-grid">
       @for (service of services; track service.title) {
-        <div class="service-card" (click)="onSelectService.emit(service.title)">
+        <div class="service-card reveal reveal-up" (click)="onSelectService.emit(service.title)">
           <div class="service-icon-wrapper">
             <span class="service-icon">
               @switch (service.title) {

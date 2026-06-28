@@ -102,9 +102,16 @@
               </div>
             </div>
 
+            @if (submitError()) {
+              <div class="error-message-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="error-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>{{ submitError() }}</span>
+              </div>
+            }
+
             <div class="form-actions">
-              <app-button type="submit" variant="primary" customClass="w-full">
-                Submit Request
+              <app-button type="submit" variant="primary" customClass="w-full" [disabled]="isSubmitting()">
+                {{ isSubmitting() ? 'Submitting...' : 'Submit Request' }}
               </app-button>
             </div>
           </form>

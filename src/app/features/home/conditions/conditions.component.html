@@ -1,11 +1,13 @@
 <section class="conditions-section section-padding" id="conditions">
   <div class="conditions-container">
-    <h2 class="conditions-title">Conditions We Support</h2>
-    <div class="title-underline"></div>
+    <div class="reveal reveal-up">
+      <h2 class="conditions-title">Conditions We Support</h2>
+      <div class="title-underline"></div>
+    </div>
 
     <div class="conditions-grid">
       @for (cond of conditions; track cond.name) {
-        <div class="condition-card">
+        <div class="condition-card reveal reveal-up">
           <div class="condition-icon-box">
             <img [src]="cond.image" [alt]="cond.name" class="condition-img" />
           </div>

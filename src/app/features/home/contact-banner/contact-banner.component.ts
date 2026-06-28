@@ -13,6 +13,9 @@ import { SectionTitleComponent } from '../../../shared/components/section-title/
 })
 export class ContactBannerComponent {
   formSubmitted = signal<boolean>(false);
+  isSubmitting = signal<boolean>(false);
+  submitError = signal<string>('');
+
   formData = {
     name: '',
     email: '',
@@ -24,13 +27,43 @@ export class ContactBannerComponent {
   onSubmitForm(event: Event) {
     event.preventDefault();
     if (this.formData.name && this.formData.email && this.formData.phone) {
-      // Simulate form submission
-      this.formSubmitted.set(true);
+      this.isSubmitting.set(true);
+      this.submitError.set('');
+
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.formData)
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Failed to send booking request. Please try again.');
+        }
+        return res.json();
+      })
+      .then(data => {
+        if (data.success) {
+          this.formSubmitted.set(true);
+        } else {
+          throw new Error(data.error || 'Failed to send booking request.');
+        }
+      })
+      .catch(err => {
+        console.error('Email submission error:', err);
+        this.submitError.set(err.message || 'An unexpected error occurred. Please try again.');
+      })
+      .finally(() => {
+        this.isSubmitting.set(false);
+      });
     }
   }
 
   resetForm() {
     this.formSubmitted.set(false);
+    this.isSubmitting.set(false);
+    this.submitError.set('');
     this.formData = {
       name: '',
       email: '',

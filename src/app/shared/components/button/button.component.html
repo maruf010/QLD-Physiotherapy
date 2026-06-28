@@ -1,0 +1,11 @@
+<button
+  [type]="type()"
+  [disabled]="disabled()"
+  [class]="'btn btn-' + variant() + ' ' + (customClass() || '')"
+  (click)="onClick.emit($event)"
+  [attr.aria-label]="ariaLabel()"
+>
+  <span class="btn-content">
+    <ng-content></ng-content>
+  </span>
+</button>

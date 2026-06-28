@@ -1,0 +1,78 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.conditions-section {
+  background-color: $bg-light;
+}
+
+.conditions-container {
+  @include container;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 48px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+.condition-card {
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: $shadow-sm;
+  transition: $transition-normal;
+  cursor: default;
+
+  .condition-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+    @include flex-center;
+    margin-bottom: 20px;
+    transition: $transition-normal;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+    border-color: rgba($primary, 0.25);
+
+    .condition-icon-box {
+      background-color: $primary;
+      color: $bg-white;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.condition-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $text-dark;
+  margin-bottom: 12px;
+}
+
+.condition-description {
+  font-size: 0.9rem;
+  color: $text-muted-dark;
+  line-height: 1.5;
+  margin-bottom: 0;
+}

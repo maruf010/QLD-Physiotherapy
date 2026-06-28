@@ -1,0 +1,115 @@
+<section class="contact-section section-padding" id="contact">
+  <div class="contact-container">
+    <!-- Title -->
+    <app-section-title 
+      tagline="BOOK ASSESSMENT" 
+      align="center"
+      description="Take the first step toward reclaiming your physical strength and functional capability. Fill out the booking form below, and we will contact you to schedule your session."
+    >
+      Book Your <span class="highlight">Initial Assessment</span>
+    </app-section-title>
+
+    <div class="booking-grid">
+      <!-- Left Info Cards -->
+      <div class="info-column">
+        <div class="welcome-box">
+          <h3>What to Expect</h3>
+          <p>Your initial 60-minute clinical assessment is the foundation of your recovery. During this session, Melissa will:</p>
+          
+          <ul class="expect-list">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <strong>Comprehensive History:</strong> Review your medical files, pathology reports, surgeries, and goals.
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <strong>Physical Assessment:</strong> Perform objective tests measuring strength, mobility, and balance.
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <strong>Custom Programming:</strong> Design your tailored evidence-based exercise intervention framework.
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="rebate-info">
+          <h4>Rebates & Funding</h4>
+          <p>QEP is a registered clinical provider. You may be eligible for rebates through:</p>
+          <div class="rebate-tags">
+            <span class="rebate-tag">Medicare (CDM/EPC)</span>
+            <span class="rebate-tag">Private Health Insurance</span>
+            <span class="rebate-tag">DVA (Department of Veterans' Affairs)</span>
+            <span class="rebate-tag">NDIS (National Disability Insurance Scheme)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Booking Form -->
+      <div class="form-column">
+        @if (formSubmitted()) {
+          <div class="success-message">
+            <div class="success-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3>Assessment Request Received!</h3>
+            <p>Thank you for reaching out to QEP. We will contact you shortly to confirm your booking date and time.</p>
+            <app-button variant="primary" (onClick)="resetForm()">Send Another Message</app-button>
+          </div>
+        } @else {
+          <form class="booking-form" (submit)="onSubmitForm($event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" [(ngModel)]="formData.name" required placeholder="e.g. Sarah Jenkins" />
+              </div>
+            </div>
+
+            <div class="form-row two-cols">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" [(ngModel)]="formData.email" required placeholder="e.g. sarah@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0400 000 000" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="program">Program of Interest</label>
+                <select id="program" name="program" [(ngModel)]="formData.program">
+                  <option value="women">Women's Health & Menopause</option>
+                  <option value="bone">Bone Health & Osteoporosis</option>
+                  <option value="ageing">Healthy Ageing & Balance</option>
+                  <option value="men">Men's Health</option>
+                  <option value="chronic">Chronic Disease Support</option>
+                  <option value="other">Other Clinical Rehabilitation</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="message">Additional Notes / Medical Conditions (Optional)</label>
+                <textarea id="message" name="message" [(ngModel)]="formData.message" rows="4" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <app-button type="submit" variant="primary" customClass="w-full">
+                Submit Request
+              </app-button>
+            </div>
+          </form>
+        }
+      </div>
+    </div>
+  </div>
+</section>

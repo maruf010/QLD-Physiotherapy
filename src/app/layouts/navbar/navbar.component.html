@@ -1,0 +1,56 @@
+<nav class="navbar" [class.scrolled]="isScrolled()" [class.menu-open]="isMenuOpen()">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a class="navbar-logo" (click)="scrollToSection('home')">
+      <svg width="45" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20Z" stroke="#46A6E5" stroke-width="3" stroke-linecap="round"/>
+        <path d="M12 20L18 26L32 12" stroke="#46A6E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M36 12C38.5 14.5 41 18 41 22C41 27 37.5 31 33.5 32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M22 2H28" stroke="#46A6E5" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-main">QEP</span>
+        <span class="logo-sub">QUEENSLAND EXERCISE PHYSIOLOGY</span>
+      </div>
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="navbar-links">
+      @for (link of navLinks; track link.id) {
+        <a class="nav-link" (click)="scrollToSection(link.id)" [class.active]="activeSection() === link.id">
+          {{ link.label }}
+        </a>
+      }
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="navbar-actions">
+      <app-button variant="primary" (onClick)="scrollToSection('contact')" ariaLabel="Book Assessment">
+        Book Assessment
+      </app-button>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Toggle navigation menu">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Side Drawer -->
+  <div class="mobile-drawer" [class.open]="isMenuOpen()">
+    <div class="mobile-drawer-links">
+      @for (link of navLinks; track link.id) {
+        <a class="mobile-nav-link" (click)="scrollToSection(link.id)">
+          {{ link.label }}
+        </a>
+      }
+      <div class="drawer-action">
+        <app-button variant="primary" (onClick)="scrollToSection('contact')" customClass="w-full" ariaLabel="Book Assessment">
+          Book Assessment
+        </app-button>
+      </div>
+    </div>
+  </div>
+</nav>

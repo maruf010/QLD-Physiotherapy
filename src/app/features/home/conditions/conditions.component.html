@@ -1,0 +1,21 @@
+<section class="conditions-section section-padding" id="conditions">
+  <div class="conditions-container">
+    <app-section-title 
+      tagline="CLINICAL INDICATIONS" 
+      align="center"
+      description="We provide targeted, evidence-based exercise therapy programs supporting individuals diagnosed with various chronic diseases and clinical conditions."
+    >
+      Conditions We <span class="highlight">Support</span>
+    </app-section-title>
+
+    <div class="conditions-grid">
+      @for (cond of conditions; track cond.name) {
+        <div class="condition-card">
+          <div class="condition-icon-box" [innerHTML]="cond.icon"></div>
+          <h3 class="condition-name">{{ cond.name }}</h3>
+          <p class="condition-description">{{ cond.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

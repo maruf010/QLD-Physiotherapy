@@ -1,0 +1,24 @@
+<section class="why-section bg-dark-section section-padding" id="why-choose">
+  <div class="why-container">
+    <app-section-title 
+      tagline="THE QEP DIFFERENCE" 
+      align="center"
+      description="Our clinical practice is built on evidence-based protocols, professional care, and a commitment to helping you build lasting physical capacity."
+    >
+      Why Choose <span class="highlight">QEP?</span>
+    </app-section-title>
+
+    <div class="features-grid">
+      @for (feat of features; track feat.title) {
+        <div class="feature-col">
+          <div class="feature-icon-wrapper">
+            <span class="feature-icon" [innerHTML]="feat.icon"></span>
+          </div>
+          <h3 class="feature-title">{{ feat.title }}</h3>
+          <p class="feature-desc">{{ feat.desc }}</p>
+          <div class="hover-bar"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

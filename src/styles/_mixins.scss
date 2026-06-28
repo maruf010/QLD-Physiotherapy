@@ -1,0 +1,51 @@
+@import 'variables';
+@import 'breakpoints';
+
+// Glassmorphism effect
+@mixin glassmorphism($bg-color: rgba(255, 255, 255, 0.08), $blur: 12px, $border-color: rgba(255, 255, 255, 0.1)) {
+  background: $bg-color;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border-color;
+}
+
+// Hover Lift & Glow
+@mixin hover-lift {
+  transition: $transition-normal;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin hover-glow-blue {
+  transition: $transition-normal;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-glow-hover;
+    border-color: rgba($primary, 0.4);
+  }
+}
+
+// Flex Center Layouts
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+// Container Limits
+@mixin container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  @include respond-to('mobile') {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

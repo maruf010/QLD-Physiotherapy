@@ -1,0 +1,86 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.section-title-container {
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  
+  &.align-center {
+    align-items: center;
+    text-align: center;
+    
+    .description {
+      max-width: 680px;
+    }
+  }
+  
+  &.align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  &.align-right {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.tagline {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 16px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: $primary;
+    border-radius: 50%;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  
+  ::ng-deep .highlight {
+    color: $primary;
+    position: relative;
+    display: inline-block;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 1.85rem;
+  }
+}
+
+.description {
+  font-size: 1.125rem;
+  color: $text-muted-dark;
+  line-height: 1.6;
+  margin-bottom: 0;
+  
+  @include respond-to('mobile') {
+    font-size: 1rem;
+  }
+}
+
+// Adapt description when in dark background
+:host-context(.bg-dark-section) {
+  .description {
+    color: $text-muted-light;
+  }
+}

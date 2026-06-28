@@ -1,0 +1,90 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand Block -->
+    <div class="footer-brand">
+      <a class="footer-logo" (click)="scrollToTop()">
+        <svg width="45" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20Z" stroke="#46A6E5" stroke-width="3" stroke-linecap="round"/>
+          <path d="M12 20L18 26L32 12" stroke="#46A6E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 12C38.5 14.5 41 18 41 22C41 27 37.5 31 33.5 32" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 2H28" stroke="#46A6E5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-main">QEP</span>
+          <span class="logo-sub">QUEENSLAND EXERCISE PHYSIOLOGY</span>
+        </div>
+      </a>
+      <p class="brand-desc">
+        Providing evidence-based clinical exercise physiology services. Accredited Exercise Physiologists (AEPs) specializing in clinical pathology, injury management, and health optimization.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4 class="footer-title">Services & Programs</h4>
+      <ul>
+        <li><a (click)="scrollToSection('services')">Women's Health & Menopause</a></li>
+        <li><a (click)="scrollToSection('services')">Bone Health & Osteoporosis</a></li>
+        <li><a (click)="scrollToSection('services')">Healthy Ageing & Balance</a></li>
+        <li><a (click)="scrollToSection('services')">Men's Health & Wellness</a></li>
+        <li><a (click)="scrollToSection('services')">Chronic Disease Management</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4 class="footer-title">Conditions We Support</h4>
+      <ul>
+        <li><a (click)="scrollToSection('conditions')">Type 2 Diabetes</a></li>
+        <li><a (click)="scrollToSection('conditions')">Cardiovascular Disease</a></li>
+        <li><a (click)="scrollToSection('conditions')">Osteoarthritis & Joint Pain</a></li>
+        <li><a (click)="scrollToSection('conditions')">Chronic Pain Management</a></li>
+        <li><a (click)="scrollToSection('conditions')">Neurological Rehabilitation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4 class="footer-title">QEP Clinic</h4>
+      <p class="contact-item">
+        <strong>Address:</strong> 58 St Paul's Terrace, Spring Hill QLD 4000
+      </p>
+      <p class="contact-item">
+        <strong>Phone:</strong> <a href="tel:0410876987">0410 876 987</a>
+      </p>
+      <p class="contact-item">
+        <strong>Email:</strong> <a href="mailto:melissafitness@hotmail.com">melissafitness&#64;hotmail.com</a>
+      </p>
+      <p class="contact-item">
+        <strong>Hours:</strong> Mon - Fri: 7am - 6pm
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <p class="copyright">
+        &copy; {{ currentYear }} Queensland Exercise Physiology (QEP). All rights reserved.
+      </p>
+      <div class="socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button 
+    class="back-to-top" 
+    [class.visible]="showBackToTop()" 
+    (click)="scrollToTop()"
+    aria-label="Back to top"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+</footer>

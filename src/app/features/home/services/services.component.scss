@@ -1,0 +1,101 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.services-section {
+  background-color: $bg-light;
+}
+
+.services-container {
+  @include container;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  @include respond-to('laptop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: $shadow-sm;
+  cursor: pointer;
+  @include hover-glow-blue;
+
+  .service-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+    @include flex-center;
+    margin-bottom: 24px;
+    transition: $transition-normal;
+  }
+
+  &:hover {
+    .service-icon-wrapper {
+      background-color: $primary;
+      color: $bg-white;
+    }
+
+    .learn-more-btn {
+      color: $primary;
+      
+      .arrow-icon {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-dark;
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  color: $text-muted-dark;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $text-muted-dark;
+  transition: $transition-fast;
+  
+  .arrow-icon {
+    transition: transform 0.2s ease-out;
+  }
+}

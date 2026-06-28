@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qldphysiotherapy.com.au/sitemap.xml

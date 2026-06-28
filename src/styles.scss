@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/reset';
+@import 'styles/variables';
+@import 'styles/breakpoints';
+@import 'styles/mixins';
+@import 'styles/typography';
+@import 'styles/animations';
+
+// Global styles & Utilities
+body {
+  background-color: $bg-white;
+  color: $text-dark;
+  overflow-x: hidden;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.bg-dark-section {
+  background-color: $bg-dark !important;
+  color: $text-light !important;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $text-light !important;
+  }
+  
+  p {
+    color: $text-muted-light !important;
+  }
+}
+
+// Utility class for common container padding
+.section-padding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include respond-to('mobile') {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}

@@ -1,0 +1,40 @@
+// QEP Design Tokens & Variables
+
+// Colors
+$primary: #46A6E5;
+$primary-hover: darken($primary, 10%);
+$primary-glow: rgba($primary, 0.4);
+
+$bg-dark: #0B0F16;
+$bg-dark-card: #131A26;
+$bg-light: #F5F8FC;
+$bg-white: #FFFFFF;
+
+$border-light: #DDE5EF;
+$border-dark: rgba($primary, 0.15);
+
+$text-dark: #1E293B;
+$text-muted-dark: #64748B;
+$text-light: #F8FAFC;
+$text-muted-light: #94A3B8;
+
+// Fonts
+$font-headings: 'Poppins', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+// Border Radii
+$radius-card: 18px;
+$radius-button: 12px;
+$radius-badge: 30px;
+
+// Shadows & Glows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+$shadow-md: 0 4px 12px rgba(11, 15, 22, 0.05);
+$shadow-lg: 0 10px 30px rgba(11, 15, 22, 0.08);
+$shadow-glow: 0 0 20px rgba(70, 166, 229, 0.35);
+$shadow-glow-hover: 0 0 30px rgba(70, 166, 229, 0.5);
+
+// Transitions
+$transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);

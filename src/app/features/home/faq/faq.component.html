@@ -1,0 +1,37 @@
+<section class="faq-section section-padding" id="faq">
+  <div class="faq-container">
+    <app-section-title 
+      tagline="COMMON QUESTIONS" 
+      align="center"
+      description="Find answers to frequently asked questions about exercise physiology, clinic consultations, referrals, and health insurance."
+    >
+      Frequently Asked <span class="highlight">Questions</span>
+    </app-section-title>
+
+    <div class="faq-accordion">
+      @for (item of faqs; track item.q; let idx = $index) {
+        <div class="faq-item" [class.open]="openIndex() === idx">
+          <button 
+            class="faq-header" 
+            (click)="toggleFaq(idx)" 
+            [attr.aria-expanded]="openIndex() === idx"
+            aria-label="Toggle FAQ answer"
+          >
+            <span class="faq-question">{{ item.q }}</span>
+            <span class="faq-toggle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-content">
+              <p>{{ item.a }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

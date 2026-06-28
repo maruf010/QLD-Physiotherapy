@@ -1,0 +1,11 @@
+<div [class]="'section-title-container align-' + align()">
+  @if (tagline()) {
+    <span class="tagline">{{ tagline() }}</span>
+  }
+  <h2 class="title">
+    <ng-content></ng-content>
+  </h2>
+  @if (description()) {
+    <p class="description">{{ description() }}</p>
+  }
+</div>

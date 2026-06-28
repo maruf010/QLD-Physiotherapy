@@ -1,0 +1,96 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: $font-headings;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: $radius-button;
+  cursor: pointer;
+  transition: $transition-normal;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border: 2px solid transparent;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+    z-index: 1;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: $bg-white;
+  box-shadow: $shadow-sm;
+  
+  &:hover {
+    background-color: darken($primary, 5%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: $primary;
+  color: $primary;
+  
+  &:hover {
+    background-color: rgba($primary, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-dark {
+  background-color: $bg-dark-card;
+  border-color: rgba($primary, 0.3);
+  color: $text-light;
+  
+  &:hover {
+    background-color: lighten($bg-dark-card, 4%);
+    border-color: $primary;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary, 0.15);
+  }
+}

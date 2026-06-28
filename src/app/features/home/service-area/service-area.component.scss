@@ -1,0 +1,181 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.service-area-section {
+  position: relative;
+  background-color: $bg-dark;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skyline-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.3) contrast(1.1);
+  z-index: 1;
+  opacity: 0.45;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba($bg-dark, 0.9) 0%, rgba(#2E8BC0, 0.5) 100%);
+  z-index: 2;
+}
+
+.service-area-container {
+  @include container;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.service-card {
+  @include glassmorphism(rgba(19, 26, 38, 0.82), 16px, rgba($primary, 0.25));
+  border-radius: $radius-card;
+  padding: 56px 48px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba($primary, 0.3);
+
+  @include respond-to('mobile') {
+    padding: 32px 20px;
+  }
+}
+
+.service-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: $text-light;
+  margin-bottom: 12px;
+
+  @include respond-to('mobile') {
+    font-size: 1.75rem;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: $text-muted-light;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.suburbs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba($primary, 0.2);
+  margin-bottom: 36px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+.suburb-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba($primary, 0.08);
+  border: 1px solid rgba($primary, 0.15);
+  border-radius: 10px;
+  padding: 12px 8px;
+  font-family: $font-headings;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-light;
+  transition: $transition-fast;
+
+  .bullet {
+    width: 6px;
+    height: 6px;
+    background-color: $primary;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    background-color: rgba($primary, 0.2);
+    border-color: $primary;
+    transform: translateY(-2px);
+  }
+}
+
+.info-blocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba($primary, 0.12);
+    color: $primary;
+    @include flex-center;
+    flex-shrink: 0;
+  }
+
+  .info-content {
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: $text-light;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: $text-muted-light;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .hover-link:hover {
+      color: $primary;
+    }
+  }
+}

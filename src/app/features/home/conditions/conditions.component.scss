@@ -1,78 +1,97 @@
 @import 'styles/variables';
 @import 'styles/mixins';
-
-.conditions-section {
-  background-color: $bg-light;
+.conditions-container{
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-.conditions-container {
-  @include container;
+.conditions-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: $text-dark;
+  margin-bottom: 12px;
+}
+
+
+.title-underline {
+  width: 60px;
+  height: 4.5px;
+  background-color: $primary;
+  margin: 0 auto 56px;
+  border-radius: 2px;
 }
 
 .conditions-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: flex-start;
   margin-top: 48px;
 
-  @include respond-to('mobile') {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 0;
   }
   
-  @include respond-to('tablet') {
+  @include respond-to('mobile') {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 32px 0;
   }
 }
 
 .condition-card {
-  background-color: $bg-white;
-  border: 1px solid $border-light;
-  border-radius: $radius-card;
-  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: $shadow-sm;
-  transition: $transition-normal;
-  cursor: default;
+  padding: 0 20px;
+  border-right: 1px solid rgba($primary, 0.15);
+  transition: transform 0.3s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @include respond-to('tablet') {
+    &:nth-child(3n) {
+      border-right: none;
+    }
+  }
+  @include respond-to('mobile') {
+    padding: 0 10px;
+    &:nth-child(2n) {
+      border-right: none;
+    }
+  }
 
   .condition-icon-box {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: rgba($primary, 0.08);
-    color: $primary;
-    @include flex-center;
-    margin-bottom: 20px;
-    transition: $transition-normal;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+
+    .condition-img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
   }
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: $shadow-md;
-    border-color: rgba($primary, 0.25);
+    transform: translateY(-4px);
 
     .condition-icon-box {
-      background-color: $primary;
-      color: $bg-white;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
   }
 }
 
 .condition-name {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-family: $font-headings;
+  font-size: 1rem;
+  font-weight: 700;
   color: $text-dark;
-  margin-bottom: 12px;
-}
-
-.condition-description {
-  font-size: 0.9rem;
-  color: $text-muted-dark;
-  line-height: 1.5;
-  margin-bottom: 0;
+  line-height: 1.35;
+  margin: 0;
 }

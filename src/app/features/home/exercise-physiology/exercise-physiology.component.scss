@@ -11,24 +11,30 @@
   grid-template-columns: 1fr 1.1fr;
   gap: 64px;
   align-items: center;
+  background-color: #f5fafe;
+  border-radius: $radius-card;
+  padding: 28px;
+  border: 1px solid $border-light;
 
   @include respond-to('mobile') {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+    padding: 24px 20px;
   }
   
   @include respond-to('tablet') {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
+    padding: 36px 28px;
   }
 }
 
 .ep-image-block {
-  background: $bg-light;
-  border-radius: $radius-card;
-  padding: 16px;
-  box-shadow: $shadow-md;
-  border: 1px solid $border-light;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
 }
 
 .image-inner {
@@ -99,10 +105,10 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.9rem;
+  font-weight: 600;
   line-height: 1.25;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   
   .highlight {
     color: $primary;
@@ -113,17 +119,27 @@
   }
 }
 
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: $primary;
+  margin-bottom: 24px;
+  border-radius: 2px;
+}
+
 .description {
   margin-bottom: 20px;
+  line-height: 1.65;
+  color: $text-muted-dark;
   
   &.lead {
-    font-size: 1.15rem;
-    color: $text-dark;
+    font-size: 1.1rem;
+    color: $text-muted-dark;
   }
   
   strong {
-    color: $primary;
-    font-weight: 600;
+    color: $text-dark;
+    font-weight: 700;
   }
 }
 

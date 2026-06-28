@@ -37,26 +37,37 @@
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   height: 100%;
   box-shadow: $shadow-sm;
   cursor: pointer;
   @include hover-glow-blue;
 
   .service-icon-wrapper {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    background-color: rgba($primary, 0.08);
-    color: $primary;
+    width: 64px;
+    height: 64px;
+    background-color: transparent;
     @include flex-center;
     margin-bottom: 24px;
     transition: $transition-normal;
+
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+filter: drop-shadow(0 8px 16px rgba($primary, 0.42));
+      transition: filter 0.3s ease;
+    }
   }
 
   &:hover {
     .service-icon-wrapper {
-      background-color: $primary;
-      color: $bg-white;
+      transform: scale(1.1);
+      
+      .service-img {
+        filter: drop-shadow(0 8px 16px rgba($primary, 0.42));
+      }
     }
 
     .learn-more-btn {

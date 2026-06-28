@@ -12,7 +12,7 @@
       @for (feat of features; track feat.title) {
         <div class="feature-col">
           <div class="feature-icon-wrapper">
-            <span class="feature-icon" [innerHTML]="feat.icon"></span>
+            <img [src]="feat.image" [alt]="feat.title" class="feature-img" />
           </div>
           <h3 class="feature-title">{{ feat.title }}</h3>
           <p class="feature-desc">{{ feat.desc }}</p>

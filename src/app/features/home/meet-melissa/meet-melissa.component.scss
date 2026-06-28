@@ -9,24 +9,23 @@
 .melissa-container {
   @include container;
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 80px;
+  grid-template-columns: 340px 1fr;
+  gap: 60px;
   align-items: center;
 
   @include respond-to('mobile') {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
   
   @include respond-to('tablet') {
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 48px;
   }
 }
 
 .melissa-image-col {
   position: relative;
-  padding: 10px;
   display: flex;
   justify-content: center;
 }
@@ -36,14 +35,25 @@
   z-index: 2;
   border-radius: 50%;
   overflow: hidden;
-  width: 400px;
-  height: 400px;
-  box-shadow: $shadow-lg;
+  width: 340px;
+  height: 340px;
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
   border: 6px solid $bg-white;
+  outline: 1px solid $border-light;
+  transition: $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+      0 20px 45px rgba(0, 0, 0, 0.12),
+      0 0 20px rgba($primary, 0.2);
+  }
   
   @include respond-to('mobile') {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
   }
 }
 
@@ -59,121 +69,90 @@
   }
 }
 
-.image-border-decor {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2px dashed rgba($primary, 0.45);
-  z-index: 1;
-  animation: rotate-dashed 40s linear infinite;
-
-  @include respond-to('mobile') {
-    left: 5%;
-    width: 90%;
-  }
-}
-
-@keyframes rotate-dashed {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .melissa-content-col {
   display: flex;
   flex-direction: column;
 }
 
-.tagline {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: $primary;
-  margin-bottom: 12px;
-  position: relative;
-  padding-left: 16px;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background-color: $primary;
-    border-radius: 50%;
-  }
-}
-
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.9rem;
+  font-weight: 600;
   line-height: 1.25;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
+  color: $text-dark;
   
   .highlight {
     color: $primary;
   }
 
   @include respond-to('mobile') {
-    font-size: 1.85rem;
+    font-size: 2rem;
   }
 }
 
-.subtitle {
-  font-family: $font-headings;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: $text-dark;
-  margin-bottom: 24px;
+.title-underline {
+  width: 60px;
+  height: 4.5px;
+  background-color: $primary;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.bio-body-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .bio-text {
   font-size: 1rem;
   color: $text-muted-dark;
-  line-height: 1.7;
-  margin-bottom: 32px;
+  line-height: 1.75;
   
   p {
-    margin-bottom: 16px;
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin: 0;
   }
 }
 
 .credentials-checklist {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .credential-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 
   .check-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background-color: rgba($primary, 0.12);
-    color: $primary;
-    box-shadow: 0 2px 6px rgba($primary, 0.1);
+    background-color: $primary;
+    color: $bg-white;
+    box-shadow: 0 4px 12px rgba($primary, 0.35);
+    flex-shrink: 0;
   }
 
   .credential-label {
     font-family: $font-headings;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: $text-dark;
+    line-height: 1.35;
   }
 }

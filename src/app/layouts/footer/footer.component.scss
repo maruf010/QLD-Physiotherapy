@@ -39,26 +39,11 @@
   gap: 12px;
   cursor: pointer;
 
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    
-    .logo-main {
-      font-family: $font-headings;
-      font-size: 1.4rem;
-      font-weight: 800;
-      line-height: 1;
-      color: $bg-white;
-      letter-spacing: 0.05em;
-    }
-
-    .logo-sub {
-      font-size: 0.55rem;
-      font-weight: 700;
-      color: $primary;
-      letter-spacing: 0.12em;
-      margin-top: 2px;
-    }
+  .logo-img {
+    height: 75px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 }
 
@@ -153,13 +138,19 @@
   margin: 0;
 }
 
-.socials {
-  display: flex;
-  gap: 16px;
+.powered-by {
+  font-size: 0.85rem;
   color: $text-muted-light;
 
-  a:hover {
+  a {
     color: $primary;
+    font-weight: 600;
+    text-decoration: none;
+    transition: $transition-fast;
+
+    &:hover {
+      color: darken($primary, 8%);
+    }
   }
 }
 

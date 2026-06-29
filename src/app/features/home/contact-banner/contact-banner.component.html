@@ -2,6 +2,7 @@
   <div class="contact-container">
     <!-- Title -->
     <app-section-title 
+      class="reveal reveal-up"
       tagline="BOOK ASSESSMENT" 
       align="center"
       description="Take the first step toward reclaiming your physical strength and functional capability. Fill out the booking form below, and we will contact you to schedule your session."
@@ -11,7 +12,7 @@
 
     <div class="booking-grid">
       <!-- Left Info Cards -->
-      <div class="info-column">
+      <div class="info-column reveal reveal-right">
         <div class="welcome-box">
           <h3>What to Expect</h3>
           <p>Your initial 60-minute clinical assessment is the foundation of your recovery. During this session, Melissa will:</p>
@@ -51,7 +52,7 @@
       </div>
 
       <!-- Right Booking Form -->
-      <div class="form-column">
+      <div class="form-column reveal reveal-left">
         @if (formSubmitted()) {
           <div class="success-message">
             <div class="success-icon">

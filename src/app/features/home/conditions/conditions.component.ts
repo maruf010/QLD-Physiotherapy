@@ -5,7 +5,7 @@ import { SectionTitleComponent } from '../../../shared/components/section-title/
 @Component({
   selector: 'app-conditions',
   standalone: true,
-  imports: [CommonModule, SectionTitleComponent],
+  imports: [CommonModule],
   templateUrl: './conditions.component.html',
   styleUrl: './conditions.component.scss'
 })

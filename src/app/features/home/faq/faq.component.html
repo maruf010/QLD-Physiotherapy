@@ -1,6 +1,7 @@
 <section class="faq-section section-padding" id="faq">
   <div class="faq-container">
     <app-section-title 
+      class="reveal reveal-up"
       tagline="COMMON QUESTIONS" 
       align="center"
       description="Find answers to frequently asked questions about exercise physiology, clinic consultations, referrals, and health insurance."
@@ -8,7 +9,7 @@
       Frequently Asked <span class="highlight">Questions</span>
     </app-section-title>
 
-    <div class="faq-accordion">
+    <div class="faq-accordion reveal reveal-up">
       @for (item of faqs; track item.q; let idx = $index) {
         <div class="faq-item" [class.open]="openIndex() === idx">
           <button 

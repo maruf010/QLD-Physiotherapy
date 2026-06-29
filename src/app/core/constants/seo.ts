@@ -9,9 +9,9 @@ export const HEALTHCARE_JSON_LD_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   'name': 'Queensland Exercise Physiology (QEP)',
-  'image': 'https://qldphysiotherapy.com.au/assets/images/hero-demo.webp',
-  '@id': 'https://qldphysiotherapy.com.au/#medical-business',
-  'url': 'https://qldphysiotherapy.com.au',
+  'image': 'https://qld-physiotherapy.com.au/assets/images/hero-demo.webp',
+  '@id': 'https://qld-physiotherapy.com.au/#medical-business',
+  'url': 'https://qld-physiotherapy.com.au',
   'telephone': '0410 876 987',
   'priceRange': '$$',
   'address': {

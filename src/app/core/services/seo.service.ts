@@ -23,13 +23,13 @@ export class SeoService {
     // Basic Meta Tags
     this.title.setTitle(config.title);
     this.meta.updateTag({ name: 'description', content: config.description });
-    
+
     if (config.keywords) {
       this.meta.updateTag({ name: 'keywords', content: config.keywords });
     }
 
     // OpenGraph Meta Tags
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://qldphysiotherapy.vercel.app';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://qld-physiotherapy.vercel.app';
     const imageUrl = config.ogImage ? (config.ogImage.startsWith('http') ? config.ogImage : origin + config.ogImage) : origin + '/assets/images/what is section.png';
 
     this.meta.updateTag({ property: 'og:title', content: config.ogTitle || config.title });

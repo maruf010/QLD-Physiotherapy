@@ -10,6 +10,10 @@
   padding: 180px 0 120px;
   overflow: hidden;
   text-align: center;
+
+  @include respond-to('mobile') {
+    padding: 130px 16px 80px;
+  }
 }
 
 .contact-hero-overlay {
@@ -50,6 +54,7 @@
 
   @include respond-to('mobile') {
     font-size: 2.25rem;
+    margin-bottom: 12px;
   }
 }
 
@@ -59,11 +64,20 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+
+  @include respond-to('mobile') {
+    font-size: 0.95rem;
+  }
 }
 
 // Split layout
 .page-container {
   @include container;
+  
+  @include respond-to('mobile') {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .contact-split-grid {
@@ -71,9 +85,14 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
 
-  @include respond-to('mobile') {
+  @include respond-to('tablet') {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
@@ -84,6 +103,10 @@
   padding: 40px;
   box-shadow: $shadow-md;
 
+  @include respond-to('mobile') {
+    padding: 24px 20px;
+  }
+
   h3 {
     font-size: 1.4rem;
     font-weight: 700;
@@ -91,6 +114,11 @@
     margin-bottom: 28px;
     border-bottom: 2px solid rgba($primary, 0.15);
     padding-bottom: 12px;
+
+    @include respond-to('mobile') {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -99,6 +127,11 @@
   align-items: flex-start;
   gap: 20px;
   margin-bottom: 28px;
+
+  @include respond-to('mobile') {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -112,6 +145,16 @@
     color: $primary;
     @include flex-center;
     flex-shrink: 0;
+
+    @include respond-to('mobile') {
+      width: 36px;
+      height: 36px;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
   }
 
   .item-text {
@@ -120,6 +163,10 @@
       font-weight: 700;
       color: $text-dark;
       margin-bottom: 4px;
+
+      @include respond-to('mobile') {
+        font-size: 0.95rem;
+      }
     }
 
     p {
@@ -127,6 +174,10 @@
       color: $text-muted-dark;
       margin: 0;
       line-height: 1.5;
+
+      @include respond-to('mobile') {
+        font-size: 0.88rem;
+      }
     }
 
     .accent-link {
@@ -148,6 +199,10 @@
   padding: 40px;
   box-shadow: $shadow-md;
 
+  @include respond-to('mobile') {
+    padding: 24px 20px;
+  }
+
   h3 {
     font-size: 1.2rem;
     font-weight: 700;
@@ -160,6 +215,10 @@
     color: $text-muted-dark;
     line-height: 1.7;
     margin: 0;
+
+    @include respond-to('mobile') {
+      font-size: 0.88rem;
+    }
   }
 }
 
@@ -170,6 +229,10 @@
   border-radius: $radius-card;
   padding: 40px;
   box-shadow: $shadow-md;
+
+  @include respond-to('mobile') {
+    padding: 24px 20px;
+  }
 }
 
 .contact-page-form {
@@ -185,6 +248,7 @@
 
   @include respond-to('mobile') {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -210,6 +274,11 @@
     color: $text-dark;
     background-color: $bg-light;
     transition: $transition-fast;
+
+    @include respond-to('mobile') {
+      padding: 12px 14px;
+      font-size: 0.9rem;
+    }
 
     &::placeholder {
       color: $text-muted-light;
@@ -263,10 +332,21 @@
   margin-top: 60px;
   margin-bottom: 60px;
 
+  @include respond-to('mobile') {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   iframe {
     border-radius: $radius-card;
     border: 1px solid $border-light !important;
     box-shadow: $shadow-lg;
     overflow: hidden;
+    
+    @include respond-to('mobile') {
+      height: 300px !important;
+    }
   }
 }

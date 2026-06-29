@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { SeoService } from '../../../core/services/seo.service';
 
 interface ServiceDetail {
   title: string;
@@ -23,6 +24,7 @@ interface ServiceDetail {
 })
 export class ServiceDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
+  private readonly seoService = inject(SeoService);
 
   serviceId: string | null = null;
   serviceData: ServiceDetail | null = null;
@@ -175,6 +177,13 @@ export class ServiceDetailComponent implements OnInit {
       this.serviceId = params.get('id');
       if (this.serviceId && this.dataMap[this.serviceId]) {
         this.serviceData = this.dataMap[this.serviceId];
+        
+        // Dynamically update SEO meta tags based on the active service
+        this.seoService.updateMetaTags({
+          title: `${this.serviceData.title} - QEP Brisbane`,
+          description: this.serviceData.subtitle,
+          keywords: `${this.serviceData.title.toLowerCase()}, allied health brisbane, clinical exercise rehabilitation`
+        });
       }
     });
 

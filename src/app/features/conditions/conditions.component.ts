@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-conditions',
@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './conditions.component.scss'
 })
 export class ConditionsComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
   conditions = [
     {
       id: "osteoporosis",
@@ -51,6 +52,12 @@ export class ConditionsComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.seoService.updateMetaTags({
+      title: 'Chronic Medical Conditions We Support - QEP',
+      description: 'Find clinical details on how targeted exercise prescription manages Osteoporosis, Menopause symptoms, Arthritis joint stiffness, Chronic Pain, and Diabetes.',
+      keywords: 'chronic disease management, osteoporosis clinical loading, arthritis exercise plan'
+    });
+
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }

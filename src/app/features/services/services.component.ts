@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-services',
@@ -11,6 +12,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './services.component.scss'
 })
 export class ServicesComponent implements OnInit {
+  private readonly seoService = inject(SeoService);
   services = [
     {
       id: "womens-health-menopause",
@@ -50,6 +52,12 @@ export class ServicesComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.seoService.updateMetaTags({
+      title: 'Clinical Exercise Physiology Services Brisbane - QEP',
+      description: 'Explore our evidence-based clinical exercise services: Women’s Health, Menopause support, Bone Health & Osteoporosis loading, Healthy Ageing, and Chronic Disease management.',
+      keywords: 'exercise physiology services, bone loading brisbane, womens health osteoporosis, chronic pain exercise'
+    });
+
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }

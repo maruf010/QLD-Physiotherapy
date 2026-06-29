@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { SeoService } from '../../../core/services/seo.service';
 
 interface ConditionDetail {
   title: string;
@@ -23,6 +24,7 @@ interface ConditionDetail {
 })
 export class ConditionDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
+  private readonly seoService = inject(SeoService);
 
   conditionId: string | null = null;
   conditionData: ConditionDetail | null = null;
@@ -119,6 +121,13 @@ export class ConditionDetailComponent implements OnInit {
       this.conditionId = params.get('id');
       if (this.conditionId && this.dataMap[this.conditionId]) {
         this.conditionData = this.dataMap[this.conditionId];
+        
+        // Dynamically update SEO meta tags based on the active condition
+        this.seoService.updateMetaTags({
+          title: `${this.conditionData.title} - QEP Brisbane`,
+          description: this.conditionData.metaDesc,
+          keywords: `${this.conditionData.title.toLowerCase()}, exercise physiologist, health brisbane`
+        });
       }
     });
 

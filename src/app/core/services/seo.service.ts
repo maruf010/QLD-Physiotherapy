@@ -29,17 +29,20 @@ export class SeoService {
     }
 
     // OpenGraph Meta Tags
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://qldphysiotherapy.vercel.app';
+    const imageUrl = config.ogImage ? (config.ogImage.startsWith('http') ? config.ogImage : origin + config.ogImage) : origin + '/assets/images/what is section.png';
+
     this.meta.updateTag({ property: 'og:title', content: config.ogTitle || config.title });
     this.meta.updateTag({ property: 'og:description', content: config.ogDescription || config.description });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
     this.meta.updateTag({ property: 'og:url', content: config.ogUrl || this.document.URL });
-    this.meta.updateTag({ property: 'og:image', content: config.ogImage || '/assets/images/hero-demo.webp' });
+    this.meta.updateTag({ property: 'og:image', content: imageUrl });
 
     // Twitter Card Meta Tags
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: config.ogTitle || config.title });
     this.meta.updateTag({ name: 'twitter:description', content: config.ogDescription || config.description });
-    this.meta.updateTag({ name: 'twitter:image', content: config.ogImage || '/assets/images/hero-demo.webp' });
+    this.meta.updateTag({ name: 'twitter:image', content: imageUrl });
 
     // Canonical Link
     this.updateCanonicalLink(config.canonical || this.document.URL);

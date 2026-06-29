@@ -1,0 +1,38 @@
+<section class="services-hero-section">
+  <div class="services-hero-overlay"></div>
+  <div class="services-hero-container">
+    <div class="services-hero-content reveal reveal-up">
+      <span class="services-badge">WHAT WE OFFER</span>
+      <h1 class="services-hero-title">Clinical <span class="highlight">Exercise Services</span></h1>
+      <p class="services-hero-subtitle">Targeted, evidence-based physical therapies tailored specifically for chronic conditions, strength, and lifelong health.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-list-section section-padding">
+  <div class="services-list-container">
+    <div class="services-showcase-grid">
+      @for (serv of services; track serv.id; let idx = $index) {
+        <div class="service-showcase-card reveal reveal-up" [style.transition-delay]="(idx * 0.1) + 's'">
+          <div class="card-image-block">
+            <span class="tag-badge">{{ serv.badge }}</span>
+            <div class="service-icon-bg">
+              <img [src]="serv.image" [alt]="serv.title" class="service-icon-image" />
+            </div>
+          </div>
+
+          <div class="card-info-block">
+            <h2 class="card-title">{{ serv.title }}</h2>
+            <p class="card-desc">{{ serv.description }}</p>
+            <div class="card-actions">
+              <a [routerLink]="['/services', serv.id]" class="view-detail-link">
+                EXPLORE CLINICAL PLAN 
+                <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

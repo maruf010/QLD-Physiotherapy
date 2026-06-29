@@ -1,0 +1,86 @@
+@if (serviceData) {
+  <section class="detail-hero bg-dark-section">
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-container">
+      <div class="detail-hero-content reveal reveal-up">
+        <span class="detail-tag">{{ serviceData.tagline }}</span>
+        <h1 class="detail-title">{{ serviceData.title }}</h1>
+        <p class="detail-subtitle">{{ serviceData.subtitle }}</p>
+        <div class="detail-cta">
+          <app-button variant="primary" routerLink="/contact">Book Initial Assessment</app-button>
+          <a routerLink="/services" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-content section-padding">
+    <div class="detail-container">
+      <div class="detail-grid">
+        <!-- Main Info -->
+        <div class="main-info reveal reveal-left">
+          <app-section-title tagline="PROGRAM OVERVIEW" align="left">
+            Evidence-Based <span class="highlight">Rehabilitation</span>
+          </app-section-title>
+          <p class="overview-text">{{ serviceData.overview }}</p>
+
+          <h3 class="subsection-title mt-4">Key Program Benefits</h3>
+          <ul class="benefits-list">
+            @for (benefit of serviceData.benefits; track benefit) {
+              <li>
+                <div class="check-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <span>{{ benefit }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Sidebar / Clinical Focus -->
+        <div class="sidebar-info reveal reveal-right">
+          <div class="focus-card">
+            <h4>Clinical Delivery Model</h4>
+            <p class="focus-intro">Our training structures align strictly with current research directives:</p>
+            <ul class="focus-list">
+              @for (focus of serviceData.clinicalFocus; track focus) {
+                <li>{{ focus }}</li>
+              }
+            </ul>
+            <div class="focus-card-footer">
+              <span class="provider-badge">Accredited AEP Provider</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-faq bg-dark-section section-padding">
+    <div class="faq-container">
+      <app-section-title tagline="FAQ" align="center">
+        Frequently Asked <span class="highlight">Questions</span>
+      </app-section-title>
+
+      <div class="faq-list">
+        @for (item of serviceData.faq; track item.q) {
+          <div class="faq-card reveal reveal-up">
+            <h3 class="faq-question">{{ item.q }}</h3>
+            <p class="faq-answer">{{ item.a }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="error-section section-padding">
+    <div class="error-container">
+      <h2>Service Not Found</h2>
+      <p>The service you are looking for does not exist or has been relocated.</p>
+      <app-button variant="primary" routerLink="/services">Return to Services</app-button>
+    </div>
+  </section>
+}

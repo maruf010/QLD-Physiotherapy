@@ -1,0 +1,145 @@
+<section class="contact-hero bg-dark-section">
+  <div class="contact-hero-overlay"></div>
+  <div class="contact-hero-container">
+    <div class="contact-hero-content reveal reveal-up">
+      <span class="contact-badge">BOOK ASSESSMENT</span>
+      <h1 class="contact-hero-title">Get in <span class="highlight">Touch</span></h1>
+      <p class="contact-hero-subtitle">Connect with Melissa Murphy at our Spring Hill clinic. Let's design your evidence-based health pathway.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-page-layout section-padding">
+  <div class="page-container">
+    <div class="contact-split-grid">
+      <!-- Info Column -->
+      <div class="details-column reveal reveal-left">
+        <div class="info-block-card">
+          <h3>Clinic Details</h3>
+          
+          <div class="detail-item">
+            <div class="icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="item-text">
+              <h4>Clinic Address</h4>
+              <p>58 St Paul's Terrace, Spring Hill QLD 4000</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="item-text">
+              <h4>Phone Number</h4>
+              <p><a href="tel:0410876987" class="accent-link">0410 876 987</a></p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div class="item-text">
+              <h4>Email Address</h4>
+              <p><a href="mailto:melissafitness@hotmail.com" class="accent-link">melissafitness&#64;hotmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="item-text">
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="parking-info-card mt-4">
+          <h3>Parking & Access Info</h3>
+          <p>Our Spring Hill clinic features dedicated parking at the rear. Street parking is available along St Paul's Terrace and adjacent streets. Convenient bus services connect directly to Brisbane CBD.</p>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="form-column reveal reveal-right">
+        <div class="form-card">
+          @if (formSubmitted()) {
+            <div class="success-box">
+              <div class="success-icon-bg">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <h3>Request Received!</h3>
+              <p>Thank you. Melissa will contact you shortly to schedule your appointment.</p>
+              <app-button variant="primary" (onClick)="resetForm()">Send Another Message</app-button>
+            </div>
+          } @else {
+            <form class="contact-page-form" (submit)="onSubmitForm($event)">
+              <div class="input-group">
+                <label for="p-name">Full Name</label>
+                <input type="text" id="p-name" name="name" [(ngModel)]="formData.name" required placeholder="e.g. Sarah Jenkins" />
+              </div>
+
+              <div class="input-row">
+                <div class="input-group">
+                  <label for="p-email">Email Address</label>
+                  <input type="email" id="p-email" name="email" [(ngModel)]="formData.email" required placeholder="e.g. sarah@example.com" />
+                </div>
+                <div class="input-group">
+                  <label for="p-phone">Phone Number</label>
+                  <input type="tel" id="p-phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0400 000 000" />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="p-program">Program of Interest</label>
+                <select id="p-program" name="program" [(ngModel)]="formData.program">
+                  <option value="women">Women's Health & Menopause</option>
+                  <option value="bone">Bone Health & Osteoporosis</option>
+                  <option value="ageing">Healthy Ageing & Balance</option>
+                  <option value="men">Men's Health</option>
+                  <option value="chronic">Chronic Disease Support</option>
+                  <option value="other">Other Clinical Rehabilitation</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label for="p-message">Medical History / Clinical Goals</label>
+                <textarea id="p-message" name="message" [(ngModel)]="formData.message" rows="5" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
+              </div>
+
+              @if (submitError()) {
+                <div class="error-box">
+                  <span>{{ submitError() }}</span>
+                </div>
+              }
+
+              <div class="action-wrapper">
+                <app-button type="submit" variant="primary" customClass="w-full" [disabled]="isSubmitting()">
+                  {{ isSubmitting() ? 'Submitting...' : 'Submit Request' }}
+                </app-button>
+              </div>
+            </form>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Google Map Embed Section -->
+<section class="map-embed-section">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.3023023023023!2d153.029887!3d-27.458925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9159f81643c7b7%3A0xf0434cc76a084df0!2s58%20St%20Paul&#39;s%20Terrace%2C%20Spring%20Hill%20QLD%204000!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" 
+    width="100%" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Queensland Exercise Physiology Clinic Location Map"
+  ></iframe>
+</section>

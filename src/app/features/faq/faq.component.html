@@ -1,0 +1,40 @@
+<section class="faq-hero bg-dark-section">
+  <div class="faq-hero-overlay"></div>
+  <div class="faq-hero-container">
+    <div class="faq-hero-content reveal reveal-up">
+      <span class="faq-badge">ALLIED HEALTH RESOURCE</span>
+      <h1 class="faq-hero-title">Common <span class="highlight">Questions</span></h1>
+      <p class="faq-hero-subtitle">Find transparent, clinical answers regarding referrals, funding, session formats, and medical eligibility.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-accordion-section section-padding">
+  <div class="accordion-container">
+    <div class="faq-grid-accordion">
+      @for (item of faqs; track item.q; let idx = $index) {
+        <div class="faq-item-card reveal reveal-up" [class.open]="openIndex() === idx">
+          <button 
+            class="faq-header-btn" 
+            (click)="toggleFaq(idx)" 
+            [attr.aria-expanded]="openIndex() === idx"
+          >
+            <span class="faq-question-text">{{ item.q }}</span>
+            <span class="faq-icon-indicator">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </span>
+          </button>
+          
+          <div class="faq-body-content">
+            <div class="faq-inner-text">
+              <p>{{ item.a }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

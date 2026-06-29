@@ -1,14 +1,14 @@
 <nav class="navbar" [class.scrolled]="isScrolled()" [class.menu-open]="isMenuOpen()">
   <div class="navbar-container">
     <!-- Logo -->
-    <a class="navbar-logo" (click)="scrollToSection('home')">
+    <a class="navbar-logo" routerLink="/">
       <img src="/assets/images/logo.png" alt="Queensland Exercise Physiology Logo" class="logo-img" />
     </a>
 
     <!-- Desktop Links -->
     <div class="navbar-links">
-      @for (link of navLinks; track link.id) {
-        <a class="nav-link" (click)="scrollToSection(link.id)" [class.active]="activeSection() === link.id">
+      @for (link of navLinks; track link.route) {
+        <a class="nav-link" [routerLink]="link.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: link.route === '/'}">
           {{ link.label }}
         </a>
       }
@@ -16,7 +16,7 @@
 
     <!-- Desktop CTA -->
     <div class="navbar-actions">
-      <app-button variant="primary" (onClick)="scrollToSection('contact')" ariaLabel="Book Assessment">
+      <app-button variant="primary" routerLink="/contact" ariaLabel="Book Assessment">
         Book Assessment
       </app-button>
     </div>
@@ -34,14 +34,14 @@
     <div class="drawer-container">
       
       <div class="mobile-drawer-links">
-        @for (link of navLinks; track link.id) {
-          <a class="mobile-nav-link" (click)="scrollToSection(link.id)" [class.active]="activeSection() === link.id">
+        @for (link of navLinks; track link.route) {
+          <a class="mobile-nav-link" [routerLink]="link.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: link.route === '/'}">
             <span class="link-num">0{{ $index + 1 }}.</span>
             <span class="link-text">{{ link.label }}</span>
           </a>
         }
         <div class="drawer-action">
-          <app-button variant="primary" (onClick)="scrollToSection('contact')" customClass="w-full" ariaLabel="Book Assessment">
+          <app-button variant="primary" routerLink="/contact" customClass="w-full" ariaLabel="Book Assessment">
             Book Assessment
           </app-button>
         </div>

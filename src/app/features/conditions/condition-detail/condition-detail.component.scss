@@ -1,0 +1,213 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.cond-detail-hero {
+  position: relative;
+  background-color: $bg-dark;
+  background-image: linear-gradient(rgba($bg-dark, 0.75), rgba($bg-dark, 0.9)), url('/assets/images/brisbane-skyline.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 160px 0 100px;
+  overflow: hidden;
+}
+
+.cond-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba($primary, 0.15) 0%, transparent 80%);
+  z-index: 1;
+}
+
+.cond-hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.cond-detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.cond-detail-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+
+  @include respond-to('mobile') {
+    font-size: 2.25rem;
+  }
+}
+
+.cond-detail-subtitle {
+  font-size: 1.15rem;
+  color: $text-muted-light;
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.cond-detail-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include respond-to('mobile') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .back-link {
+    font-family: $font-headings;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-light;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $primary;
+      transform: translateX(-2px);
+    }
+  }
+}
+
+// Layout grid
+.cond-detail-container {
+  @include container;
+}
+
+.cond-detail-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.cond-main-content {
+  .section-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 16px;
+  }
+
+  .subsection-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 14px;
+  }
+
+  .body-text {
+    font-size: 1rem;
+    color: $text-muted-dark;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+}
+
+.approach-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.98rem;
+    color: $text-muted-dark;
+    line-height: 1.5;
+
+    .list-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $primary;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Sidebar
+.evidence-box {
+  background-color: $bg-light;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 40px;
+  box-shadow: $shadow-md;
+
+  .evidence-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 16px;
+    border-bottom: 2px solid rgba($primary, 0.2);
+    padding-bottom: 10px;
+  }
+
+  .evidence-text {
+    font-size: 0.95rem;
+    color: $text-muted-dark;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+}
+
+.evidence-footer {
+  display: flex;
+  justify-content: center;
+  
+  .essam-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $primary;
+    border: 1px solid rgba($primary, 0.4);
+    background-color: rgba($primary, 0.05);
+    padding: 6px 14px;
+    border-radius: 30px;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Error state
+.error-section {
+  text-align: center;
+  padding: 120px 0;
+
+  .error-container {
+    @include container;
+    max-width: 500px;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    p {
+      color: $text-muted-dark;
+      margin-bottom: 24px;
+    }
+  }
+}

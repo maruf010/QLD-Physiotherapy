@@ -1,0 +1,157 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.faq-hero {
+  position: relative;
+  background-color: $bg-dark;
+  background-image: linear-gradient(rgba($bg-dark, 0.75), rgba($bg-dark, 0.9)), url('/assets/images/brisbane-skyline.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0 120px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.faq-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba($primary, 0.15) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.faq-hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.faq-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+
+  @include respond-to('mobile') {
+    font-size: 2.25rem;
+  }
+}
+
+.faq-hero-subtitle {
+  font-size: 1.15rem;
+  color: $text-muted-light;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Accordion styling
+.accordion-container {
+  @include container;
+  max-width: 800px;
+}
+
+.faq-grid-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.faq-item-card {
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition-normal;
+
+  .faq-header-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 16px;
+
+    .faq-question-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $text-dark;
+      transition: $transition-fast;
+    }
+
+    .faq-icon-indicator {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgba($primary, 0.08);
+      color: $primary;
+      @include flex-center;
+      flex-shrink: 0;
+      transition: $transition-normal;
+    }
+  }
+
+  .faq-body-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-inner-text {
+    padding: 0 24px 24px;
+    font-size: 0.95rem;
+    color: $text-muted-dark;
+    line-height: 1.7;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    border-color: rgba($primary, 0.3);
+    box-shadow: $shadow-md;
+  }
+
+  &.open {
+    border-color: rgba($primary, 0.4);
+    box-shadow: $shadow-md;
+
+    .faq-header-btn {
+      .faq-question-text {
+        color: $primary;
+      }
+      .faq-icon-indicator {
+        transform: rotate(135deg);
+        background-color: $primary;
+        color: $bg-white;
+      }
+    }
+
+    .faq-body-content {
+      max-height: 250px;
+    }
+  }
+}

@@ -1,0 +1,262 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.detail-hero {
+  position: relative;
+  background-color: $bg-dark;
+  background-image: linear-gradient(rgba($bg-dark, 0.75), rgba($bg-dark, 0.9)), url('/assets/images/brisbane-skyline.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 160px 0 100px;
+  overflow: hidden;
+}
+
+.detail-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba($primary, 0.15) 0%, transparent 80%);
+  z-index: 1;
+}
+
+.detail-hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.detail-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.detail-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+
+  @include respond-to('mobile') {
+    font-size: 2.25rem;
+  }
+}
+
+.detail-subtitle {
+  font-size: 1.15rem;
+  color: $text-muted-light;
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.detail-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include respond-to('mobile') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .back-link {
+    font-family: $font-headings;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-light;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $primary;
+      transform: translateX(-2px);
+    }
+  }
+}
+
+// Grid layout
+.detail-container {
+  @include container;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.main-info {
+  .overview-text {
+    font-size: 1.05rem;
+    color: $text-muted-dark;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  .subsection-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 20px;
+  }
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 1rem;
+    color: $text-muted-dark;
+    line-height: 1.5;
+
+    .check-icon {
+      color: $primary;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+}
+
+// Focus card sidebar
+.focus-card {
+  background-color: $bg-light;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 40px;
+  box-shadow: $shadow-md;
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 16px;
+  }
+
+  .focus-intro {
+    font-size: 0.92rem;
+    color: $text-muted-dark;
+    margin-bottom: 24px;
+  }
+}
+
+.focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-dark;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $primary;
+    }
+  }
+}
+
+.focus-card-footer {
+  border-top: 1px solid $border-light;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  .provider-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $primary;
+    border: 1px solid rgba($primary, 0.4);
+    background-color: rgba($primary, 0.05);
+    padding: 6px 14px;
+    border-radius: 30px;
+    letter-spacing: 0.05em;
+  }
+}
+
+// FAQ Section
+.faq-container {
+  @include container;
+  max-width: 800px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.faq-card {
+  @include glassmorphism(rgba(19, 26, 38, 0.6), 12px, rgba($primary, 0.1));
+  border: 1px solid rgba($primary, 0.15);
+  border-radius: $radius-card;
+  padding: 32px;
+
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $text-light;
+    margin-bottom: 12px;
+  }
+
+  .faq-answer {
+    font-size: 0.92rem;
+    color: $text-muted-light;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Error state
+.error-section {
+  text-align: center;
+  padding: 120px 0;
+  
+  .error-container {
+    @include container;
+    max-width: 500px;
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    p {
+      color: $text-muted-dark;
+      margin-bottom: 24px;
+    }
+  }
+}

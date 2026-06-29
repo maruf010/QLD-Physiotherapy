@@ -1,0 +1,137 @@
+<section class="about-hero-section">
+  <div class="about-hero-overlay"></div>
+  <div class="about-hero-container">
+    <div class="about-hero-content reveal reveal-up">
+      <span class="about-badge">CLINICAL EXCELLENCE</span>
+      <h1 class="about-hero-title">Empowering Health through <span class="highlight">Clinical Movement</span></h1>
+      <p class="about-hero-subtitle">Discover the QEP story, our evidence-based mission, and how we help you build sustainable strength.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story-section section-padding">
+  <div class="story-container">
+    <div class="story-grid">
+      <div class="story-image-wrapper reveal reveal-left">
+        <img src="/assets/images/Client Image.png" alt="Melissa Murphy training client" class="story-img" />
+        <div class="experience-badge">
+          <span class="number">8+</span>
+          <span class="text">Years Clinical Experience</span>
+        </div>
+      </div>
+      
+      <div class="story-content reveal reveal-right">
+        <app-section-title tagline="THE QEP STORY" align="left">
+          Clinical Expertise with a <span class="highlight">Personal Touch</span>
+        </app-section-title>
+        
+        <p class="story-text">
+          Founded by Melissa Murphy, Queensland Exercise Physiology (QEP) was established with a singular focus: to bridge the gap between complex clinical research and real-world, life-changing exercise interventions. 
+        </p>
+        <p class="story-text">
+          We don't believe in generic gym plans or trend-based workouts. As Accredited Exercise Physiologists (AEPs), we treat exercise as medicine. Every program we write is carefully tailored to support cardiovascular recovery, manage metabolic disorders, secure bone health against osteoporosis, and make healthy ageing a vibrant reality.
+        </p>
+
+        <div class="philosophy-quote">
+          <blockquote>
+            "Our body is capable of incredible adaptation at any age. When we apply precise, clinical-grade exercise loading, we don't just rehab an injury — we secure long-term independence."
+          </blockquote>
+          <cite>— Melissa Murphy, Founder & Accredited Exercise Physiologist</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission-section bg-dark-section section-padding">
+  <div class="mission-container">
+    <app-section-title tagline="OUR FOUNDATION" align="center">
+      Our Mission & <span class="highlight">Core Values</span>
+    </app-section-title>
+    
+    <div class="values-grid">
+      @for (val of values; track val.title; let idx = $index) {
+        <div class="value-card reveal reveal-up" [style.transition-delay]="(idx * 0.15) + 's'">
+          <div class="value-icon-wrapper">
+            <span class="value-icon">0{{ idx + 1 }}</span>
+          </div>
+          <h3 class="value-title">{{ val.title }}</h3>
+          <p class="value-desc">{{ val.desc }}</p>
+          <div class="value-glow"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="qualifications-section section-padding">
+  <div class="qualifications-container">
+    <div class="qual-grid">
+      <div class="qual-content reveal reveal-left">
+        <app-section-title tagline="MEET MELISSA" align="left">
+          Melissa Murphy <span class="highlight">(AEP, ESSAM)</span>
+        </app-section-title>
+        
+        <p class="qual-text">
+          Melissa is a highly respected Accredited Exercise Physiologist with extensive clinical training. Under her leadership, QEP has become a trusted partner for medical practitioners, chronic patients, and individuals looking to regain control of their physical wellbeing.
+        </p>
+
+        <h3 class="subsection-title">Core Focus & Specialisations</h3>
+        <ul class="spec-list">
+          <li>
+            <svg class="spec-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Women's Health:</strong> Exercise prescription during menopause, healthy hormone transition support, and pelvic floor integration.</span>
+          </li>
+          <li>
+            <svg class="spec-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Bone Pathology:</strong> High-density progressive loading protocols targeting osteoporosis and osteopenia management.</span>
+          </li>
+          <li>
+            <svg class="spec-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Healthy Ageing:</strong> Balance retraining, fall prevention, joint stability, and functional freedom.</span>
+          </li>
+        </ul>
+        
+        <div class="cta-block">
+          <app-button variant="primary" routerLink="/contact">Book Assessment with Melissa</app-button>
+        </div>
+      </div>
+
+      <div class="qual-badges reveal reveal-right">
+        <div class="badge-card">
+          <h4>Clinical Accreditations</h4>
+          <ul class="badge-list">
+            <li>Bachelor of Clinical Exercise Physiology</li>
+            <li>ESSA Accredited Exercise Physiologist (AEP)</li>
+            <li>Accredited Exercise Scientist (AES)</li>
+            <li>Medicare, DVA & WorkCover Registered Provider</li>
+            <li>NDIS Registered Allied Health Specialist</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section bg-dark-section section-padding">
+  <div class="timeline-container">
+    <app-section-title tagline="OUR JOURNEY" align="center">
+      Path to <span class="highlight">Clinical Excellence</span>
+    </app-section-title>
+
+    <div class="timeline-path">
+      <div class="timeline-line"></div>
+      
+      @for (item of timeline; track item.year; let idx = $index) {
+        <div class="timeline-item reveal reveal-up" [class.left-aligned]="idx % 2 === 0" [class.right-aligned]="idx % 2 !== 0">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">{{ item.year }}</span>
+            <h3 class="timeline-card-title">{{ item.title }}</h3>
+            <p class="timeline-card-desc">{{ item.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

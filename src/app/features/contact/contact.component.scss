@@ -1,0 +1,272 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.contact-hero {
+  position: relative;
+  background-color: $bg-dark;
+  background-image: linear-gradient(rgba($bg-dark, 0.75), rgba($bg-dark, 0.9)), url('/assets/images/brisbane-skyline.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0 120px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba($primary, 0.15) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.contact-hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.contact-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+
+  @include respond-to('mobile') {
+    font-size: 2.25rem;
+  }
+}
+
+.contact-hero-subtitle {
+  font-size: 1.15rem;
+  color: $text-muted-light;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Split layout
+.page-container {
+  @include container;
+}
+
+.contact-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.info-block-card {
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 40px;
+  box-shadow: $shadow-md;
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 28px;
+    border-bottom: 2px solid rgba($primary, 0.15);
+    padding-bottom: 12px;
+  }
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 28px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+    @include flex-center;
+    flex-shrink: 0;
+  }
+
+  .item-text {
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $text-dark;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: $text-muted-dark;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .accent-link {
+      color: $text-muted-dark;
+      text-decoration: none;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.parking-info-card {
+  background-color: $bg-light;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 40px;
+  box-shadow: $shadow-md;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 0.92rem;
+    color: $text-muted-dark;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+// Form column
+.form-card {
+  background-color: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $radius-card;
+  padding: 40px;
+  box-shadow: $shadow-md;
+}
+
+.contact-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text-dark;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 14px 18px;
+    border: 1px solid $border-light;
+    border-radius: 8px;
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: $text-dark;
+    background-color: $bg-light;
+    transition: $transition-fast;
+
+    &::placeholder {
+      color: $text-muted-light;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      background-color: $bg-white;
+      box-shadow: 0 0 0 3px rgba($primary, 0.15);
+    }
+  }
+}
+
+.action-wrapper {
+  margin-top: 10px;
+}
+
+// Success message
+.success-box {
+  text-align: center;
+  padding: 40px 0;
+
+  .success-icon-bg {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: rgba(34, 197, 94, 0.1);
+    color: rgb(34, 197, 94);
+    @include flex-center;
+    margin: 0 auto 24px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: $text-muted-dark;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+}
+
+// Maps section
+.map-embed-section {
+  @include container;
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  iframe {
+    border-radius: $radius-card;
+    border: 1px solid $border-light !important;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+  }
+}

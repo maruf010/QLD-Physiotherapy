@@ -14,22 +14,22 @@
     <div class="footer-links reveal reveal-up" style="transition-delay: 0.15s;">
       <h4 class="footer-title">Services & Programs</h4>
       <ul>
-        <li><a (click)="scrollToSection('services')">Women's Health & Menopause</a></li>
-        <li><a (click)="scrollToSection('services')">Bone Health & Osteoporosis</a></li>
-        <li><a (click)="scrollToSection('services')">Healthy Ageing & Balance</a></li>
-        <li><a (click)="scrollToSection('services')">Men's Health & Wellness</a></li>
-        <li><a (click)="scrollToSection('services')">Chronic Disease Management</a></li>
+        <li><a [routerLink]="['/services', 'womens-health-menopause']">Women's Health & Menopause</a></li>
+        <li><a [routerLink]="['/services', 'bone-health-osteoporosis']">Bone Health & Osteoporosis</a></li>
+        <li><a [routerLink]="['/services', 'healthy-ageing-balance']">Healthy Ageing & Balance</a></li>
+        <li><a [routerLink]="['/services', 'mens-health-wellness']">Men's Health & Wellness</a></li>
+        <li><a [routerLink]="['/services', 'chronic-disease-management']">Chronic Disease Management</a></li>
       </ul>
     </div>
 
     <div class="footer-links reveal reveal-up" style="transition-delay: 0.3s;">
       <h4 class="footer-title">Conditions We Support</h4>
       <ul>
-        <li><a (click)="scrollToSection('conditions')">Type 2 Diabetes</a></li>
-        <li><a (click)="scrollToSection('conditions')">Cardiovascular Disease</a></li>
-        <li><a (click)="scrollToSection('conditions')">Osteoarthritis & Joint Pain</a></li>
-        <li><a (click)="scrollToSection('conditions')">Chronic Pain Management</a></li>
-        <li><a (click)="scrollToSection('conditions')">Neurological Rehabilitation</a></li>
+        <li><a [routerLink]="['/conditions', 'diabetes']">Type 2 Diabetes</a></li>
+        <li><a [routerLink]="['/conditions', 'cardiovascular-disease']">Cardiovascular Disease</a></li>
+        <li><a [routerLink]="['/conditions', 'arthritis']">Osteoarthritis & Joint Pain</a></li>
+        <li><a [routerLink]="['/conditions', 'chronic-pain']">Chronic Pain Management</a></li>
+        <li><a [routerLink]="['/conditions', 'neurological-rehabilitation']">Neurological Rehabilitation</a></li>
       </ul>
     </div>
 

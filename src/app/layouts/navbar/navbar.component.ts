@@ -1,39 +1,47 @@
 import { Component, signal, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
   private readonly scroller = inject(ViewportScroller);
+  private readonly router = inject(Router);
 
   isScrolled = signal<boolean>(false);
   isMenuOpen = signal<boolean>(false);
   activeSection = signal<string>('home');
+  currentUrl = signal<string>('/');
 
   navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'about', label: 'About' },
-    { id: 'conditions', label: 'Conditions' },
-    { id: 'why-choose', label: 'Why Choose' },
-    { id: 'meet-melissa', label: 'Melissa' },
-    { id: 'contact', label: 'Contact' }
+    { route: '/', label: 'Home' },
+    { route: '/about', label: 'About' },
+    { route: '/services', label: 'Services' },
+    { route: '/conditions', label: 'Conditions' },
+    { route: '/faq', label: 'FAQ' },
+    { route: '/contact', label: 'Contact' }
   ];
 
   ngOnInit() {
     this.checkScroll();
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.currentUrl.set(event.urlAfterRedirects);
+      this.isMenuOpen.set(false);
+    });
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.checkScroll();
-    this.trackActiveSection();
   }
 
   checkScroll() {
@@ -44,42 +52,5 @@ export class NavbarComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen.update(open => !open);
-  }
-
-  scrollToSection(id: string) {
-    this.isMenuOpen.set(false);
-    this.activeSection.set(id);
-    
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // height of fixed navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  trackActiveSection() {
-    if (typeof window === 'undefined') return;
-
-    const scrollPosition = window.scrollY + 120; // active window padding offset
-
-    for (const link of this.navLinks) {
-      const element = document.getElementById(link.id);
-      if (element) {
-        const top = element.offsetTop;
-        const height = element.offsetHeight;
-        if (scrollPosition >= top && scrollPosition < top + height) {
-          this.activeSection.set(link.id);
-          break;
-        }
-      }
-    }
   }
 }

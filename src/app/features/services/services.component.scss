@@ -1,0 +1,222 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.services-hero-section {
+  position: relative;
+  background-color: $bg-dark;
+  background-image: linear-gradient(rgba($bg-dark, 0.75), rgba($bg-dark, 0.9)), url('/assets/images/brisbane-skyline.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 180px 0 120px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.services-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba($primary, 0.15) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.services-hero-container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background-color: rgba($primary, 0.15);
+  border: 1px solid rgba($primary, 0.3);
+  color: $primary;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.services-hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: $text-light;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+
+  @include respond-to('mobile') {
+    font-size: 2.25rem;
+  }
+}
+
+.services-hero-subtitle {
+  font-size: 1.15rem;
+  color: $text-muted-light;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Showcase Grid
+.services-list-container {
+  @include container;
+}
+
+.services-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-showcase-card {
+  background-color: $bg-dark-card;
+  border: 1px solid rgba($primary, 0.15);
+  border-radius: $radius-card;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: $transition-normal;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, $primary, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-image-block {
+    height: 180px;
+    background: radial-gradient(circle at center, rgba($primary, 0.15) 0%, transparent 80%), rgba($bg-dark, 0.5);
+    position: relative;
+    @include flex-center;
+    border-bottom: 1px solid rgba($primary, 0.1);
+
+    .tag-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba($primary, 0.12);
+      border: 1px solid rgba($primary, 0.3);
+      color: $primary;
+      padding: 6px 14px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-radius: 30px;
+      letter-spacing: 0.08em;
+      z-index: 3;
+    }
+
+    .service-icon-bg {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba($primary, 0.2) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border: 1px solid rgba($primary, 0.25);
+      @include flex-center;
+      z-index: 2;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: $transition-fast;
+
+      .service-icon-image {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    }
+  }
+
+  .card-info-block {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $text-light;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: $text-muted-light;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+
+    .card-actions {
+      margin-top: auto;
+      
+      .view-detail-link {
+        font-family: $font-headings;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: $primary;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: $transition-fast;
+
+        .arrow-icon {
+          transition: transform 0.25s ease;
+        }
+
+        &:hover {
+          color: lighten($primary, 10%);
+          
+          .arrow-icon {
+            transform: translateX(6px);
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba($primary, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .card-image-block {
+      .service-icon-bg {
+        transform: scale(1.05);
+        border-color: $primary;
+        box-shadow: 0 0 15px rgba($primary, 0.3);
+
+        .service-icon-image {
+          transform: scale(1.1) rotate(5deg);
+        }
+      }
+    }
+  }
+}

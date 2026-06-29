@@ -1,0 +1,34 @@
+<section class="conditions-hero bg-dark-section">
+  <div class="conditions-overlay"></div>
+  <div class="conditions-hero-container">
+    <div class="conditions-hero-content reveal reveal-up">
+      <span class="hero-badge">SEO-OPTIMIZED ARCHIVE</span>
+      <h1 class="hero-title">Conditions We <span class="highlight">Manage</span></h1>
+      <p class="hero-subtitle">Clinically engineered exercise prescription frameworks targeting chronic pathology, skeletal support, and metabolic conditions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="conditions-grid-section section-padding">
+  <div class="grid-container">
+    <div class="conditions-showcase-grid">
+      @for (cond of conditions; track cond.id; let idx = $index) {
+        <div class="cond-showcase-card reveal reveal-up" [style.transition-delay]="(idx * 0.1) + 's'">
+          <div class="cond-card-header">
+            <span class="cond-tag">{{ cond.tag }}</span>
+          </div>
+          <div class="cond-card-body">
+            <h3 class="cond-name">{{ cond.name }}</h3>
+            <p class="cond-preview">Explore how target progressive resistance training, vestibular loading, and metabolic conditioning manages this pathology.</p>
+          </div>
+          <div class="cond-card-footer">
+            <a [routerLink]="['/conditions', cond.id]" class="explore-btn">
+              VIEW CLINICAL SUMMARY
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

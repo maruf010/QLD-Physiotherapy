@@ -2,9 +2,13 @@
 @import 'styles/mixins';
 
 .section-title-container {
-  margin-bottom: 48px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 28px;
+  }
   
   &.align-center {
     align-items: center;
@@ -55,6 +59,11 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 16px;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
   
   ::ng-deep .highlight {
     color: $primary;

@@ -72,6 +72,9 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
   align-items: center;
+  @media screen and (max-width: 968px) {
+    gap: 10px;
+  }
 
   @include respond-to('mobile') {
     grid-template-columns: 1fr;
@@ -140,8 +143,12 @@
     font-size: 1rem;
     color: $text-muted-dark;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
+}
+.title{
+  font-size: 1rem !important;
+  
 }
 
 .philosophy-quote {

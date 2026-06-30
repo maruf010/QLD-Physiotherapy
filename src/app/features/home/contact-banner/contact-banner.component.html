@@ -63,22 +63,37 @@
             <app-button variant="primary" (onClick)="resetForm()">Send Another Message</app-button>
           </div>
         } @else {
-          <form class="booking-form" (submit)="onSubmitForm($event)">
+          <form class="booking-form" #bookingForm="ngForm" (submit)="onSubmitForm(bookingForm, $event)">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" [(ngModel)]="formData.name" required placeholder="e.g. Sarah Jenkins" />
+                <div class="label-row">
+                  <label for="name">Full Name</label>
+                  @if (nameRef.invalid && (nameRef.touched || bookingForm.submitted)) {
+                    <span class="error-text">Full Name is required</span>
+                  }
+                </div>
+                <input type="text" id="name" name="name" [(ngModel)]="formData.name" #nameRef="ngModel" required placeholder="e.g. Sarah Jenkins" />
               </div>
             </div>
 
             <div class="form-row two-cols">
               <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" [(ngModel)]="formData.email" required placeholder="e.g. sarah@example.com" />
+                <div class="label-row">
+                  <label for="email">Email Address</label>
+                  @if (emailRef.invalid && (emailRef.touched || bookingForm.submitted)) {
+                    <span class="error-text">Email Address is required</span>
+                  }
+                </div>
+                <input type="email" id="email" name="email" [(ngModel)]="formData.email" #emailRef="ngModel" required email placeholder="e.g. sarah@example.com" />
               </div>
               <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0400 000 000" />
+                <div class="label-row">
+                  <label for="phone">Phone Number</label>
+                  @if (phoneRef.invalid && (phoneRef.touched || bookingForm.submitted)) {
+                    <span class="error-text">Phone Number is required</span>
+                  }
+                </div>
+                <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" #phoneRef="ngModel" required placeholder="e.g. 0400 000 000" />
               </div>
             </div>
 
@@ -98,8 +113,13 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="message">Additional Notes / Medical Conditions (Optional)</label>
-                <textarea id="message" name="message" [(ngModel)]="formData.message" rows="4" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
+                <div class="label-row">
+                  <label for="message">Medical History / Clinical Goals</label>
+                  @if (messageRef.invalid && (messageRef.touched || bookingForm.submitted)) {
+                    <span class="error-text">Medical History is required</span>
+                  }
+                </div>
+                <textarea id="message" name="message" [(ngModel)]="formData.message" #messageRef="ngModel" required rows="4" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
               </div>
             </div>
 

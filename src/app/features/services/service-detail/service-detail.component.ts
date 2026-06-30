@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SectionTitleComponent } from '../../../shared/components/section-title/section-title.component';
@@ -28,6 +28,17 @@ export class ServiceDetailComponent implements OnInit {
 
   serviceId: string | null = null;
   serviceData: ServiceDetail | null = null;
+  
+  // Track currently expanded FAQ index
+  expandedFaqIndex = signal<number | null>(null);
+
+  toggleFaq(index: number) {
+    if (this.expandedFaqIndex() === index) {
+      this.expandedFaqIndex.set(null); // Collapse
+    } else {
+      this.expandedFaqIndex.set(index); // Expand
+    }
+  }
 
   private readonly dataMap: Record<string, ServiceDetail> = {
     'womens-health-menopause': {

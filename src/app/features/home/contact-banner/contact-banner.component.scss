@@ -151,6 +151,19 @@
   flex-direction: column;
   gap: 6px;
 
+  .label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+    .error-text {
+      color: #ef4444;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+  }
+
   label {
     font-family: $font-headings;
     font-size: 0.85rem;

@@ -66,10 +66,23 @@
       </app-section-title>
 
       <div class="faq-list">
-        @for (item of serviceData.faq; track item.q) {
-          <div class="faq-card reveal reveal-up">
-            <h3 class="faq-question">{{ item.q }}</h3>
-            <p class="faq-answer">{{ item.a }}</p>
+        @for (item of serviceData.faq; track item.q; let idx = $index) {
+          <div 
+            class="faq-card reveal reveal-up" 
+            [class.active]="expandedFaqIndex() === idx"
+            (click)="toggleFaq(idx)"
+          >
+            <div class="faq-question-row">
+              <h3 class="faq-question">{{ item.q }}</h3>
+              <span class="faq-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="chevron-icon">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrapper">
+              <p class="faq-answer">{{ item.a }}</p>
+            </div>
           </div>
         }
       </div>

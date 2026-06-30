@@ -6,8 +6,8 @@
 }
 
 .conditions-section {
-  padding-top: 5px !important;
-  padding-bottom: 25px !important;
+  padding-top: 60px !important;
+  padding-bottom: 80px !important;
 }
 
 .conditions-title {
@@ -50,7 +50,7 @@
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  border-right: 1px solid rgba($primary, 0.15);
+  border-right: 2px solid rgba($primary, 0.18);
   transition: transform 0.3s ease;
 
   &:last-child {

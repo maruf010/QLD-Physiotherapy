@@ -11,8 +11,8 @@
     </div>
 
     <div class="services-grid">
-      @for (service of services; track service.title) {
-        <div class="service-card reveal reveal-up" (click)="onSelectService.emit(service.title)">
+      @for (service of services; track service.id) {
+        <a class="service-card reveal reveal-up" [routerLink]="['/services', service.id]">
           <div class="service-icon-wrapper">
             <span class="service-icon">
               @switch (service.title) {
@@ -43,7 +43,7 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
-        </div>
+        </a>
       }
     </div>
   </div>

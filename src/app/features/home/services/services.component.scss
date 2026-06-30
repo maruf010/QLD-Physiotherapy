@@ -42,6 +42,7 @@
   height: 100%;
   box-shadow: $shadow-sm;
   cursor: pointer;
+  text-decoration: none;
   @include hover-glow-blue;
 
   .service-icon-wrapper {

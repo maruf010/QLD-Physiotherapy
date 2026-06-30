@@ -77,20 +77,35 @@
               <app-button variant="primary" (onClick)="resetForm()">Send Another Message</app-button>
             </div>
           } @else {
-            <form class="contact-page-form" (submit)="onSubmitForm($event)">
+            <form class="contact-page-form" #contactForm="ngForm" (submit)="onSubmitForm(contactForm, $event)">
               <div class="input-group">
-                <label for="p-name">Full Name</label>
-                <input type="text" id="p-name" name="name" [(ngModel)]="formData.name" required placeholder="e.g. Sarah Jenkins" />
+                <div class="label-row">
+                  <label for="p-name">Full Name</label>
+                  @if (nameRef.invalid && (nameRef.touched || contactForm.submitted)) {
+                    <span class="error-text">Full Name is required</span>
+                  }
+                </div>
+                <input type="text" id="p-name" name="name" [(ngModel)]="formData.name" #nameRef="ngModel" required placeholder="e.g. Sarah Jenkins" />
               </div>
 
               <div class="input-row">
                 <div class="input-group">
-                  <label for="p-email">Email Address</label>
-                  <input type="email" id="p-email" name="email" [(ngModel)]="formData.email" required placeholder="e.g. sarah@example.com" />
+                  <div class="label-row">
+                    <label for="p-email">Email Address</label>
+                    @if (emailRef.invalid && (emailRef.touched || contactForm.submitted)) {
+                      <span class="error-text">Email Address is required</span>
+                    }
+                  </div>
+                  <input type="email" id="p-email" name="email" [(ngModel)]="formData.email" #emailRef="ngModel" required email placeholder="e.g. sarah@example.com" />
                 </div>
                 <div class="input-group">
-                  <label for="p-phone">Phone Number</label>
-                  <input type="tel" id="p-phone" name="phone" [(ngModel)]="formData.phone" required placeholder="e.g. 0400 000 000" />
+                  <div class="label-row">
+                    <label for="p-phone">Phone Number</label>
+                    @if (phoneRef.invalid && (phoneRef.touched || contactForm.submitted)) {
+                      <span class="error-text">Phone Number is required</span>
+                    }
+                  </div>
+                  <input type="tel" id="p-phone" name="phone" [(ngModel)]="formData.phone" #phoneRef="ngModel" required placeholder="e.g. 0400 000 000" />
                 </div>
               </div>
 
@@ -107,8 +122,13 @@
               </div>
 
               <div class="input-group">
-                <label for="p-message">Medical History / Clinical Goals</label>
-                <textarea id="p-message" name="message" [(ngModel)]="formData.message" rows="5" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
+                <div class="label-row">
+                  <label for="p-message">Medical History / Clinical Goals</label>
+                  @if (messageRef.invalid && (messageRef.touched || contactForm.submitted)) {
+                    <span class="error-text">Medical History is required</span>
+                  }
+                </div>
+                <textarea id="p-message" name="message" [(ngModel)]="formData.message" #messageRef="ngModel" required rows="5" placeholder="Briefly describe your goals or any medical conditions you want to address..."></textarea>
               </div>
 
               @if (submitError()) {
@@ -132,6 +152,11 @@
 
 <!-- Google Map Embed Section -->
 <section class="map-embed-section">
+  <div class="reveal reveal-up" style="margin-bottom: 40px;">
+    <app-section-title tagline="CLINIC LOCATION" align="center">
+      Find Us in <span class="highlight">Spring Hill</span>
+    </app-section-title>
+  </div>
   <iframe 
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.3023023023023!2d153.029887!3d-27.458925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9159f81643c7b7%3A0xf0434cc76a084df0!2s58%20St%20Paul&#39;s%20Terrace%2C%20Spring%20Hill%20QLD%204000!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" 
     width="100%" 

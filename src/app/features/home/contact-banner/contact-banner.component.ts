@@ -24,9 +24,9 @@ export class ContactBannerComponent {
     message: ''
   };
 
-  onSubmitForm(event: Event) {
+  onSubmitForm(form: any, event: Event) {
     event.preventDefault();
-    if (this.formData.name && this.formData.email && this.formData.phone) {
+    if (form.valid) {
       this.isSubmitting.set(true);
       this.submitError.set('');
 

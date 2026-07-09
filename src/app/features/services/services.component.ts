@@ -16,8 +16,8 @@ export class ServicesComponent implements OnInit {
   services = [
     {
       id: "womens-health-menopause",
-      title: "Women's Health & Menopause",
-      description: "Tailored exercise programs to help women build strength, support bone health, and maintain confidence through every stage of life.",
+      title: "Women's Health Exercise Physiology",
+      description: "Supporting women through every stage of life, from pregnancy and postnatal recovery to menopause and bone health.",
       badge: "POPULAR",
       image: "/assets/images/women.png"
     },

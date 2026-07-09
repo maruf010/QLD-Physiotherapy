@@ -8,6 +8,7 @@ import { WhyChooseComponent } from './why-choose/why-choose.component';
 import { MeetMelissaComponent } from './meet-melissa/meet-melissa.component';
 import { ServiceAreaComponent } from './service-area/service-area.component';
 import { FaqComponent } from './faq/faq.component';
+import { ClinicShowcaseComponent } from './clinic-showcase/clinic-showcase.component';
 import { ContactBannerComponent } from './contact-banner/contact-banner.component';
 import { SeoService } from '../../core/services/seo.service';
 import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/constants/seo';
@@ -25,7 +26,8 @@ import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/consta
     MeetMelissaComponent,
     ServiceAreaComponent,
     FaqComponent,
-    ContactBannerComponent
+    ContactBannerComponent,
+    ClinicShowcaseComponent
   ],
   template: `
     <main class="home-layout">

@@ -16,8 +16,8 @@ export class ServicesComponent {
   services = [
     {
       id: "womens-health-menopause",
-      title: "Women's Health & Menopause",
-      description: "Tailored exercise programs to help women build strength, support bone health, and maintain confidence through every stage of life.",
+      title: "Women's Health Exercise Physiology",
+      description: "Supporting women through every stage of life, from pregnancy and postnatal recovery to menopause and bone health.",
       icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-2.5 0-4.5 2-4.5 4.5v1c0 1-.5 2-1 2.5c0 0 .5.5 1 .5h9c.5 0 1-.5 1-.5c-.5-.5-1-1.5-1-2.5v-1C16.5 7 14.5 5 12 5z" /><path d="M9 11c0 2 1.5 3 3 3s3-1 3-3V10c0-1.5-1-2-3-2s-3 .5-3 2v1z" /><path d="M7 21v-2a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v2" /></svg>`
     },
     {

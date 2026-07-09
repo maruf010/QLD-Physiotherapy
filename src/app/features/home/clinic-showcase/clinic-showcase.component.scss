@@ -1,0 +1,282 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.clinic-showcase-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+// =========================================
+// SESSION BANNER (treadmill image)
+// =========================================
+.session-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 620px;
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.session-image-wrap {
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to('tablet') {
+    height: 420px;
+  }
+}
+
+.session-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.8s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+.session-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 15, 30, 0.15),
+    rgba(10, 15, 30, 0.0)
+  );
+  pointer-events: none;
+}
+
+.session-badge-pill {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #46a6e5;
+    box-shadow: 0 0 0 3px rgba(70, 166, 229, 0.3);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(70, 166, 229, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(70, 166, 229, 0.1); }
+}
+
+.session-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 64px;
+  background: $bg-dark;
+
+  @include respond-to('tablet') {
+    padding: 48px 32px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 40px 24px;
+  }
+}
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: $primary;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.session-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $text-light;
+  margin-bottom: 20px;
+
+  @include respond-to('mobile') {
+    font-size: 1.9rem;
+  }
+}
+
+.session-desc {
+  font-size: 1rem;
+  color: $text-muted-light;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.session-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: $text-light;
+    font-weight: 500;
+
+    svg {
+      flex-shrink: 0;
+      color: $primary;
+    }
+  }
+}
+
+// =========================================
+// CLINIC BANNER (gym room image)
+// =========================================
+.clinic-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 620px;
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clinic-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 64px;
+  background: #fff;
+
+  @include respond-to('tablet') {
+    order: 2;
+    padding: 48px 32px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 40px 24px;
+  }
+
+  .section-eyebrow {
+    color: $primary;
+  }
+}
+
+.clinic-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $bg-dark;
+  margin-bottom: 20px;
+
+  .highlight {
+    color: $primary;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 1.9rem;
+  }
+}
+
+.clinic-desc {
+  font-size: 1rem;
+  color: #5a6a7a;
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.clinic-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+
+  @include respond-to('mobile') {
+    gap: 16px;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: $primary;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8a9aab;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: #d0d9e2;
+}
+
+.clinic-image-wrap {
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to('tablet') {
+    order: 1;
+    height: 420px;
+  }
+}
+
+.clinic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+.clinic-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(10, 15, 30, 0.0),
+    rgba(10, 15, 30, 0.15)
+  );
+  pointer-events: none;
+}

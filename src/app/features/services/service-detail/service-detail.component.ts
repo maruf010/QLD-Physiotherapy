@@ -42,21 +42,22 @@ export class ServiceDetailComponent implements OnInit {
 
   private readonly dataMap: Record<string, ServiceDetail> = {
     'womens-health-menopause': {
-      title: "Women's Health & Menopause",
-      subtitle: "Navigating physiological milestones with strength, guidance, and evidence-based clinical protocols.",
+      title: "Women's Health Exercise Physiology",
+      subtitle: "Every stage of a woman's life brings unique changes. Whether you're preparing for pregnancy, staying active during pregnancy, recovering after birth, navigating menopause, or looking to improve your strength and confidence, our evidence-based exercise programs are designed to help you move safely and feel your best.",
       tagline: "WOMEN'S PHYSIOLOGY",
-      overview: "Hormonal changes during peri-menopause and menopause affect muscle mass, bone density, vascular elasticity, and mood. Clinical exercise physiology designs targeted resistance and aerobic loading to offset these biological transitions, maintaining lean muscle tissue, supporting joint health, and protecting pelvic floor integrity.",
+      overview: "With experience in women's health, along with our own infertility journey through pregnancy and postnatal, QEP understands the importance of pelvic floor and core rehabilitation. We help women return to exercise safely, rebuild strength, improve function, and feel confident in their bodies again. Whether your baby is six weeks or six years old, it's never too late to invest in your health.",
       benefits: [
-        "Maintains muscle mass and strength during hormonal transitions",
-        "Assists in cardiovascular protection and metabolic regulation",
-        "Supports sleep quality, mental wellbeing, and fatigue management",
-        "Integrates safe pelvic floor stability during load progression"
+        "Preconception fitness",
+        "Pregnancy (prenatal exercise)",
+        "Postnatal recovery",
+        "Pelvic floor and core rehabilitation",
+        "Diastasis recti (abdominal separation)"
       ],
       clinicalFocus: [
-        "Resistance training optimized for hormonal profiles",
-        "Pelvic floor friendly load progressions",
-        "Core stability and postural alignment",
-        "High-density interval conditioning for metabolic health"
+        "Safe return to exercise after childbirth",
+        "Strength training with baby",
+        "Menopause and perimenopause",
+        "Bone health and osteoporosis prevention"
       ],
       faq: [
         {

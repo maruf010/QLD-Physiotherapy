@@ -488,6 +488,11 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .strip-image-col {

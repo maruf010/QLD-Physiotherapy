@@ -17,7 +17,7 @@ export class ConditionsComponent implements OnInit {
       id: "osteoporosis",
       name: "Osteoporosis & Osteopenia",
       image: "/assets/images/bone.png",
-      tag: "BONE STRUCTURE"
+      tag: "BONE HEALTH"
     },
     {
       id: "menopause",

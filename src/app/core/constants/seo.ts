@@ -1,7 +1,7 @@
 export const DEFAULT_SEO_CONFIG = {
-  title: 'QEP - Queensland Exercise Physiology | Clinical Exercise Rehabilitation',
-  description: 'Evidence-based exercise physiology services in Brisbane. Accredited professionals specializing in women\'s health, bone health, cardiovascular recovery, diabetes, and healthy ageing.',
-  keywords: 'Exercise Physiology, Brisbane Exercise Physiologist, QEP, Queensland Exercise Physiology, Women\'s Health, Bone Health, Diabetes Management, Arthritis Rehab, Melissa Murphy',
+  title: 'QEP - Queensland Exercise Physiology | Stronger for Every Stage of Life',
+  description: 'Specialising in women\'s health, pregnancy and postnatal care, menopause, healthy ageing and rehabilitation through personalised, evidence-based exercise physiology.',
+  keywords: 'Exercise Physiology, Brisbane Exercise Physiologist, QEP, Queensland Exercise Physiology, Women\'s Health, Pregnancy Care, Menopause, Bone Health, Healthy Ageing, Rehabilitation, Melissa Murphy',
   ogImage: '/assets/images/what is section.png'
 };
 

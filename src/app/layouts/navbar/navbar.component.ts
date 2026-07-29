@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
   navLinks = [
     { route: '/', label: 'Home' },
     { route: '/about', label: 'About' },
+    { route: '/womens-health', label: "Women's Health" },
     { route: '/services', label: 'Services' },
     { route: '/conditions', label: 'Conditions' },
     { route: '/faq', label: 'FAQ' },

@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/about/about.component').then(m => m.AboutComponent)
   },
   {
+    path: 'womens-health',
+    loadComponent: () => import('./features/womens-health/womens-health.component').then(m => m.WomensHealthComponent)
+  },
+  {
     path: 'services',
     children: [
       {

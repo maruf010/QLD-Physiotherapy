@@ -14,9 +14,11 @@
     <div class="conditions-showcase-grid">
       @for (cond of conditions; track cond.id; let idx = $index) {
         <div class="cond-showcase-card reveal reveal-up" [style.transition-delay]="(idx * 0.1) + 's'">
-          <div class="cond-card-header">
-            <span class="cond-tag">{{ cond.tag }}</span>
-          </div>
+          @if (cond.tag) {
+            <div class="cond-card-header">
+              <span class="cond-tag">{{ cond.tag }}</span>
+            </div>
+          }
           <div class="cond-card-body">
             <h3 class="cond-name">{{ cond.name }}</h3>
             <p class="cond-preview">Explore how target progressive resistance training, vestibular loading, and metabolic conditioning manages this pathology.</p>

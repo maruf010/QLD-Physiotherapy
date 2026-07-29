@@ -10,7 +10,7 @@ app.use(cors());
 let EMAIL_CONFIG = {
   senderUser: 'info.maruf010@gmail.com',
   senderPassword: 'fvin oidu ngde zuga',
-  recipients: ['info.maruf010@gmail.com', 'mhbijoy013@gmail.com']
+  recipients: ['info.maruf010@gmail.com', 'mhbijoy013@gmail.com', 'qldexphysiology@gmail.com']
 };
 
 try {

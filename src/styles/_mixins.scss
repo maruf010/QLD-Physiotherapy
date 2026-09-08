@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'breakpoints';
+@use 'variables' as *;
+@use 'breakpoints' as *;
 
 // Glassmorphism effect
 @mixin glassmorphism($bg-color: rgba(255, 255, 255, 0.08), $blur: 12px, $border-color: rgba(255, 255, 255, 0.1)) {

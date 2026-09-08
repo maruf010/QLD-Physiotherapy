@@ -36,10 +36,11 @@ import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/consta
       <app-exercise-physiology (onBook)="scrollToSection('contact')"></app-exercise-physiology>
       <app-conditions></app-conditions>
       <app-why-choose></app-why-choose>
+      <!-- <app-clinic-showcase></app-clinic-showcase> -->
       <app-meet-melissa></app-meet-melissa>
       <app-service-area></app-service-area>
       <app-faq></app-faq>
-      <app-contact-banner></app-contact-banner>
+      <!-- <app-contact-banner></app-contact-banner> -->
     </main>
   `,
   styles: `
@@ -74,7 +75,7 @@ export class HomeComponent implements OnInit {
   }
 
   dialPhone() {
-    window.location.href = 'tel:0410878987';
+    window.location.href = 'tel:0410876987';
   }
 
   handleServiceSelection(serviceName: string) {

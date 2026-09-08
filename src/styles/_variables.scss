@@ -1,8 +1,10 @@
 // QEP Design Tokens & Variables
 
+@use "sass:color";
+
 // Colors
 $primary: #46A6E5;
-$primary-hover: darken($primary, 10%);
+$primary-hover: color.adjust($primary, $lightness: -10%);
 $primary-glow: rgba($primary, 0.4);
 
 $bg-dark: #0B0F16;

@@ -1,5 +1,4 @@
-@import 'styles/variables';
-@import 'styles/mixins';
+@use 'styles/index' as *;
 
 .section-title-container {
   margin-bottom: 8px;
@@ -9,21 +8,21 @@
   @media (max-width: 1024px) {
     margin-bottom: 28px;
   }
-  
+
   &.align-center {
     align-items: center;
     text-align: center;
-    
+
     .description {
       max-width: 680px;
     }
   }
-  
+
   &.align-left {
     align-items: flex-start;
     text-align: left;
   }
-  
+
   &.align-right {
     align-items: flex-end;
     text-align: right;
@@ -40,7 +39,7 @@
   margin-bottom: 12px;
   position: relative;
   padding-left: 16px;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -64,7 +63,7 @@
     font-size: 2rem;
     margin-bottom: 10px;
   }
-  
+
   ::ng-deep .highlight {
     color: $primary;
     position: relative;
@@ -81,7 +80,7 @@
   color: $text-muted-dark;
   line-height: 1.6;
   margin-bottom: 0;
-  
+
   @include respond-to('mobile') {
     font-size: 1rem;
   }

@@ -1,5 +1,4 @@
-@import 'styles/variables';
-@import 'styles/mixins';
+@use 'styles/index' as *;
 
 .contact-hero {
   position: relative;
@@ -80,29 +79,42 @@
   }
 }
 
-.contact-split-grid {
+.contact-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
 
   @include respond-to('tablet') {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
+    max-width: 650px;
   }
 
   @include respond-to('mobile') {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 }
 
-.info-block-card {
+.info-block-card,
+.parking-info-card {
   background-color: $bg-white;
   border: 1px solid $border-light;
   border-radius: $radius-card;
   padding: 40px;
   box-shadow: $shadow-md;
-  margin-bottom: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-3px);
+  }
 
   @include respond-to('mobile') {
     padding: 24px 20px;
@@ -189,36 +201,6 @@
       &:hover {
         color: $primary;
       }
-    }
-  }
-}
-
-.parking-info-card {
-  background-color: $bg-light;
-  border: 1px solid $border-light;
-  border-radius: $radius-card;
-  padding: 40px;
-  box-shadow: $shadow-md;
-
-  @include respond-to('mobile') {
-    padding: 24px 20px;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: $text-dark;
-    margin-bottom: 16px;
-  }
-
-  p {
-    font-size: 0.92rem;
-    color: $text-muted-dark;
-    line-height: 1.7;
-    margin: 0;
-
-    @include respond-to('mobile') {
-      font-size: 0.88rem;
     }
   }
 }

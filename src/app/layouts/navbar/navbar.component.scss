@@ -1,5 +1,5 @@
-@import 'styles/variables';
-@import 'styles/mixins';
+@use 'sass:color';
+@use 'styles/index' as *;
 
 .navbar {
   position: fixed;
@@ -30,11 +30,11 @@
 }
 
 .navbar-container {
-  @include container;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  @include container;
 }
 
 .navbar-logo {
@@ -102,6 +102,51 @@
 
   @media (max-width: 1023px) {
     display: none;
+  }
+}
+
+.navbar-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: $primary;
+  color: #FFFFFF !important;
+  padding: 11px 20px;
+  border-radius: $radius-button;
+  font-family: $font-headings;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: $transition-normal;
+  box-shadow: 0 4px 14px rgba(70, 166, 229, 0.35);
+
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.2;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: color.adjust($primary, $lightness: -6%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-hover;
+    color: #FFFFFF !important;
+
+    svg {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.w-full {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.05rem;
   }
 }
 

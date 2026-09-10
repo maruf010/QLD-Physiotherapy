@@ -82,7 +82,7 @@ export class ServiceDetailComponent implements OnInit {
         "Builds confidence in performing everyday lifting safely"
       ],
       clinicalFocus: [
-        "Progressive high-intensity resistance training (LIFTMOR framework)",
+        "Progressive high-intensity resistance training",
         "Axial compression loading protocols",
         "Vestibular and balance retraining",
         "Safe spinal movement patterns and lifting mechanics"
@@ -90,7 +90,7 @@ export class ServiceDetailComponent implements OnInit {
       faq: [
         {
           q: "Isn't heavy lifting dangerous for someone with osteoporosis?",
-          a: "When performed with poor form, yes. However, clinical trials (like the LIFTMOR study) prove that supervised, progressive high-intensity resistance loading is safe and highly effective at improving bone density. Melissa guides your form directly to guarantee safety."
+          a: "When performed with poor form, yes. However, clinical trials prove that supervised, progressive high-intensity resistance loading is safe and highly effective at improving bone density. Melissa guides your form directly to guarantee safety."
         },
         {
           q: "What is the difference between osteopenia and osteoporosis?",

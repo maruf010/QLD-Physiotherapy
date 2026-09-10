@@ -37,7 +37,7 @@ export class ConditionDetailComponent implements OnInit {
       intro: "Osteoporosis and its precursor, osteopenia, are characterized by a reduction in bone mineral density (BMD), making bones brittle and vulnerable to fractures. Mechanical loading is the primary non-pharmacological stimulus to encourage bone deposition.",
       mechanics: "Bones adapt to the mechanical loads placed upon them (Wolff's Law). When subjected to structured, progressive compressive and tensile forces, osteoblasts are activated to lay down new bone matrix, strengthening skeletal sites most prone to fracture (hip, spine, and wrist).",
       howWeHelp: [
-        "Implementation of progressive high-intensity resistance training (such as the LIFTMOR framework)",
+        "Implementation of progressive high-intensity resistance training",
         "Axial compression loading to stimulate bone density",
         "Reactive balance retraining to mitigate fall risks",
         "Education on safe bending, twisting, and lifting mechanics in daily life"

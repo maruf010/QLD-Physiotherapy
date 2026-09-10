@@ -8,7 +8,7 @@ import { SeoService } from '../../core/services/seo.service';
 @Component({
   selector: 'app-womens-health',
   standalone: true,
-  imports: [CommonModule, SectionTitleComponent, ButtonComponent, RouterLink],
+  imports: [CommonModule, SectionTitleComponent, RouterLink],
   templateUrl: './womens-health.component.html',
   styleUrl: './womens-health.component.scss'
 })

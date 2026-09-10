@@ -25,10 +25,9 @@ import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/consta
     WhyChooseComponent,
     MeetMelissaComponent,
     ServiceAreaComponent,
-    FaqComponent,
-    ContactBannerComponent,
-    ClinicShowcaseComponent
-  ],
+    FaqComponent
+],
+
   template: `
     <main class="home-layout">
       <app-hero (onBook)="scrollToSection('contact')" (onCall)="dialPhone()"></app-hero>
@@ -75,7 +74,7 @@ export class HomeComponent implements OnInit {
   }
 
   dialPhone() {
-    window.location.href = 'tel:0410876987';
+    window.location.href = 'tel:0410878987';
   }
 
   handleServiceSelection(serviceName: string) {

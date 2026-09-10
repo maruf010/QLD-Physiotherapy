@@ -12,7 +12,7 @@ export const HEALTHCARE_JSON_LD_SCHEMA = {
   'image': 'https://qld-physiotherapy.com.au/assets/images/hero-demo.webp',
   '@id': 'https://qld-physiotherapy.com.au/#medical-business',
   'url': 'https://qld-physiotherapy.com.au',
-  'telephone': '0410 876 987',
+  'telephone': '0410 878 987',
   'priceRange': '$$',
   'address': {
     '@type': 'PostalAddress',

@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
   let EMAIL_CONFIG = {
     senderUser: 'info.maruf010@gmail.com',
     senderPassword: 'fvin oidu ngde zuga',
-    recipients: ['info.maruf010@gmail.com', 'mhbijoy013@gmail.com', 'qldexphysiology@gmail.com']
+    recipients: ['qldexphysiology@gmail.com', 'codewithmaruf010@gmail.com']
   };
 
   try {
@@ -68,60 +68,57 @@ module.exports = async function handler(req, res) {
 
   const selectedProgram = programsMap[program] || program;
 
-  const sendPromises = EMAIL_CONFIG.recipients.map(recipient => {
-    const mailOptions = {
-      from: `"QEP Website Enquiry" <${EMAIL_CONFIG.senderUser}>`,
-      replyTo: email,
-      to: recipient,
-      subject: `New Initial Assessment Request - ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-          <!-- Brand Header -->
-          <div style="background: #0B0F16; color: white; padding: 25px 20px; text-align: center; border-bottom: 3px solid #46A6E5;">
-            <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">QEP</h1>
-            <p style="margin: 5px 0 0; opacity: 0.8; font-size: 10px; text-transform: uppercase; letter-spacing: 2px;">Queensland Exercise Physiology</p>
-          </div>
-          
-          <!-- Content Body -->
-          <div style="padding: 30px; background-color: #ffffff;">
-            <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; font-size: 18px; margin-top: 0;">User Information</h2>
-            <table style="width: 100%; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 10px 0; color: #666; width: 150px; font-size: 14px;"><strong>Name:</strong></td>
-                <td style="padding: 10px 0; color: #333; font-size: 14px;">${name}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Email:</strong></td>
-                <td style="padding: 10px 0; color: #333; font-size: 14px;"><a href="mailto:${email}" style="color: #46A6E5; text-decoration: none;">${email}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Phone:</strong></td>
-                <td style="padding: 10px 0; color: #333; font-size: 14px;">${phone}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Program:</strong></td>
-                <td style="padding: 10px 0; color: #46A6E5; font-size: 14px; font-weight: bold;">${selectedProgram}</td>
-              </tr>
-            </table>
+  const mailOptions = {
+    from: `"QEP Website Enquiry" <${EMAIL_CONFIG.senderUser}>`,
+    replyTo: email,
+    to: EMAIL_CONFIG.recipients.join(', '),
+    subject: `New Initial Assessment Request - ${name}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <!-- Brand Header -->
+        <div style="background: #0B0F16; color: white; padding: 25px 20px; text-align: center; border-bottom: 3px solid #46A6E5;">
+          <h1 style="margin: 0; font-size: 24px; letter-spacing: 1px;">QEP</h1>
+          <p style="margin: 5px 0 0; opacity: 0.8; font-size: 10px; text-transform: uppercase; letter-spacing: 2px;">Queensland Exercise Physiology</p>
+        </div>
+        
+        <!-- Content Body -->
+        <div style="padding: 30px; background-color: #ffffff;">
+          <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; font-size: 18px; margin-top: 0;">User Information</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 10px 0; color: #666; width: 150px; font-size: 14px;"><strong>Name:</strong></td>
+              <td style="padding: 10px 0; color: #333; font-size: 14px;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Email:</strong></td>
+              <td style="padding: 10px 0; color: #333; font-size: 14px;"><a href="mailto:${email}" style="color: #46A6E5; text-decoration: none;">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Phone:</strong></td>
+              <td style="padding: 10px 0; color: #333; font-size: 14px;">${phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; color: #666; font-size: 14px;"><strong>Program:</strong></td>
+              <td style="padding: 10px 0; color: #46A6E5; font-size: 14px; font-weight: bold;">${selectedProgram}</td>
+            </tr>
+          </table>
 
-            <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 30px; font-size: 18px;">Message / Additional Notes</h2>
-            <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; color: #555; line-height: 1.6; border-left: 4px solid #46A6E5; font-style: italic;">
-              ${(message || 'No additional notes or medical conditions provided.').replace(/\n/g, '<br>')}
-            </div>
-          </div>
-          
-          <!-- Footer -->
-          <div style="background-color: #f4f4f4; padding: 15px; text-align: center; color: #888; font-size: 12px;">
-            <p style="margin: 0;">This email was automatically generated by the QEP Website booking portal.</p>
+          <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 30px; font-size: 18px;">Message / Additional Notes</h2>
+          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; color: #555; line-height: 1.6; border-left: 4px solid #46A6E5; font-style: italic;">
+            ${(message || 'No additional notes or medical conditions provided.').replace(/\n/g, '<br>')}
           </div>
         </div>
-      `,
-    };
-    return transporter.sendMail(mailOptions);
-  });
+        
+        <!-- Footer -->
+        <div style="background-color: #f4f4f4; padding: 15px; text-align: center; color: #888; font-size: 12px;">
+          <p style="margin: 0;">This email was automatically generated by the QEP Website booking portal.</p>
+        </div>
+      </div>
+    `,
+  };
 
   try {
-    await Promise.all(sendPromises);
+    await transporter.sendMail(mailOptions);
     return res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Error sending email:', error);

@@ -28,7 +28,7 @@ module.exports = async function handler(req, res) {
   // Gmail SMTP settings
   let EMAIL_CONFIG = {
     senderUser: 'info.maruf010@gmail.com',
-    senderPassword: 'fvin oidu ngde zuga',
+    senderPassword: 'mvzn nwsk jtax jlla',
     recipients: ['qldexphysiology@gmail.com', 'codewithmaruf010@gmail.com']
   };
 

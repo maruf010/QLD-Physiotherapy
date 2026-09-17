@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { HeroComponent } from './hero/hero.component';
 import { ServicesComponent } from './services/services.component';
 import { ExercisePhysiologyComponent } from './exercise-physiology/exercise-physiology.component';
@@ -26,13 +27,13 @@ import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/consta
     MeetMelissaComponent,
     ServiceAreaComponent,
     FaqComponent
-],
+  ],
 
   template: `
     <main class="home-layout">
-      <app-hero (onBook)="scrollToSection('contact')" (onCall)="dialPhone()"></app-hero>
+      <app-hero (onBook)="navigateToContactForm()" (onCall)="dialPhone()"></app-hero>
       <app-services (onSelectService)="handleServiceSelection($event)"></app-services>
-      <app-exercise-physiology (onBook)="scrollToSection('contact')"></app-exercise-physiology>
+      <app-exercise-physiology (onBook)="navigateToContactForm()"></app-exercise-physiology>
       <app-conditions></app-conditions>
       <app-why-choose></app-why-choose>
       <!-- <app-clinic-showcase></app-clinic-showcase> -->
@@ -51,10 +52,18 @@ import { DEFAULT_SEO_CONFIG, HEALTHCARE_JSON_LD_SCHEMA } from '../../core/consta
 })
 export class HomeComponent implements OnInit {
   private readonly seoService = inject(SeoService);
+  private readonly router = inject(Router);
 
   ngOnInit() {
     this.seoService.updateMetaTags(DEFAULT_SEO_CONFIG);
     this.seoService.injectSchema(HEALTHCARE_JSON_LD_SCHEMA);
+  }
+
+  navigateToContactForm(program?: string) {
+    this.router.navigate(['/contact'], {
+      fragment: 'contact-form',
+      queryParams: program ? { program } : undefined
+    });
   }
 
   scrollToSection(id: string) {
@@ -78,19 +87,14 @@ export class HomeComponent implements OnInit {
   }
 
   handleServiceSelection(serviceName: string) {
-    this.scrollToSection('contact');
-    
-    // Auto-select program dropdown in contact form
-    const selectEl = document.getElementById('program') as HTMLSelectElement;
-    if (selectEl) {
-      if (serviceName.includes("Women")) selectEl.value = 'women';
-      else if (serviceName.includes("Bone")) selectEl.value = 'bone';
-      else if (serviceName.includes("Ageing") || serviceName.includes("Ageing")) selectEl.value = 'ageing';
-      else if (serviceName.includes("Men")) selectEl.value = 'men';
-      else if (serviceName.includes("Chronic")) selectEl.value = 'chronic';
-      
-      // Dispatch change event to let NgModel update
-      selectEl.dispatchEvent(new Event('change'));
-    }
+    let program = 'women';
+    if (serviceName.includes("Women")) program = 'women';
+    else if (serviceName.includes("Bone")) program = 'bone';
+    else if (serviceName.includes("Ageing") || serviceName.includes("Aging")) program = 'ageing';
+    else if (serviceName.includes("Men")) program = 'men';
+    else if (serviceName.includes("Chronic")) program = 'chronic';
+    else if (serviceName.includes("Rehab") || serviceName.includes("General")) program = 'other';
+
+    this.navigateToContactForm(program);
   }
 }

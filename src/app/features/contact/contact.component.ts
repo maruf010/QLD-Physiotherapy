@@ -1,6 +1,7 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 
@@ -12,6 +13,8 @@ import { SectionTitleComponent } from '../../shared/components/section-title/sec
   styleUrl: './contact.component.scss'
 })
 export class ContactPageLightComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute);
+
   formSubmitted = signal<boolean>(false);
   isSubmitting = signal<boolean>(false);
   submitError = signal<string>('');
@@ -75,7 +78,37 @@ export class ContactPageLightComponent implements OnInit {
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
+      this.route.fragment.subscribe(fragment => {
+        if (fragment) {
+          setTimeout(() => {
+            this.scrollToElement(fragment);
+          }, 150);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      });
+
+      this.route.queryParams.subscribe(params => {
+        if (params['program']) {
+          this.formData.program = params['program'];
+        }
+      });
+    }
+  }
+
+  private scrollToElement(elementId: string) {
+    const el = document.getElementById(elementId);
+    if (el) {
+      const offset = 90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = el.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }
 }
